@@ -102,6 +102,107 @@ This is at least partly because or is more frequent in questions and children pr
 Considering this asymmetry in speech act production, it is likely that or is learned relatively quickly and before the age of 4.
 
 # Study 2 (Akshay)
+```{r warmup, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggthemes)
+library(bootstrap)
+library(forcats)
+library (irr)
+library(caret)
+library(lme4)
+library(lmerTest)
+library(knitr)
+
+## for bootstrapping 95% confidence intervals
+theta <- function(x,xdata) {mean(xdata[x])}
+ci.low <- function(x) {
+  quantile(bootstrap(1:length(x),1000,theta,x)$thetastar,.025)}
+ci.high <- function(x) {
+  quantile(bootstrap(1:length(x),1000,theta,x)$thetastar,.975)}
+```
+
+```{r data_prep, echo=FALSE, warning=FALSE, message=FALSE}
+alex_data <- read.csv("1_raw_data/ProvidenceData-alex.csv", nrows=100)
+lily_data <- read.csv("1_raw_data/ProvidenceData-lily.csv", nrows=99)
+vio_data <- read.csv("1_raw_data/ProvidenceData-vio.csv", nrows=102)
+will_data <- read.csv("1_raw_data/ProvidenceData-will.csv", nrows=100)
+naima_data <- read.csv("1_raw_data/ProvidenceOR-Naima.csv", nrows=241)
+
+naima_data <- 
+  naima_data %>%
+  filter(!is.na(exclusivity), !is.na(intonation))
+
+all_data <- rbind(alex_data, lily_data, vio_data, will_data, naima_data)
+
+all_data$intonation <- as.factor(all_data$intonation)
+
+all_data$consistency <- fct_recode(all_data$exclusion, "Consistent" = "ELS", "Inconsistent" = "EXC")
+all_data$intonation <- fct_recode(all_data$intonation, "Flat" = "0", "Rising" = "1", "Rise-Fall" = "2")
+```
+
+## Methods 
+
+Children acquire adult-like production of the word "or" by the age of 4 despite having 13x less occurances than "and" in CDS. To develop a specific model for how children might learn the exclusivity interpretation of or using such little data, the Providence database was analyzed. Utterances extracted utterances containing the word "or" and 2 utterances before/after it were extracted to provide examples of "or" use along with surrounding context.
+Utterances were annotated for four major categories. 
+Exclusivity Interpretation: This category represents the goal task: understanding the intended form of disjunction. 
+Intonation: This category was divided into three main intonation patterns over the disjuncts. Intonation could be flat, rising overall, or rise-fall. These three categories were selected because rise-fall in particular has been shown to lead to an exclusive interpretation of the disjunction. 
+Consistency: This category tracked the logical consistency of the disjuncts. Two disjuncts were marked as inconsistent if replacing the word "or" with "and" produced a logical conflict. For example in “Are your feet clean or dirty?”, the disjuncts are inconsistent: the addresee’s feet cannot be both clean and dirty.
+Syntactic Level: This category marked the structure of the disjuncts of the utterance. Disjuncts could be sentential or subsentential. 
+Two raters annotated the same 240 utterances to develop a reliability score. The interrater reliability was calculated over 8 iterations of 30 examples. Training only completed after 3 consecutive iterations with reliability over 0.7 for all categories.
+
+```{r data_wrangling, echo=FALSE, warning=FALSE, message=FALSE}
+raw_data <- 
+  all_data %>%
+  group_by(id, exclusivity) %>%
+  summarise(counts= n()) %>%
+  spread(exclusivity, counts) %>%
+  replace(is.na(.), 0) %>%
+  mutate(total = IN + EX) %>%
+  gather(EXIN, counts, EX:IN) %>%
+  mutate(prop = counts / total) %>%
+  group_by(EXIN) %>%
+  summarize(cih = ci.high(prop),
+            cil = ci.low(prop),
+            prop = mean(prop))
+
+graph_data <- 
+  all_data %>%
+  group_by(id, intonation, exclusion, exclusivity) %>%
+  summarise(counts= n()) %>%
+  spread(exclusivity, counts) %>%
+  replace(is.na(.), 0) %>%
+  mutate(total = EX + IN) %>%
+  gather(exclusivity, counts, EX:IN) %>%
+  mutate(prop = counts / total) %>%
+  group_by(exclusivity, intonation, exclusion) %>%
+  summarize(cih = ci.high(prop),
+            cil = ci.low(prop),
+            prop = mean(prop)) 
+
+counts_table<-  
+  all_data %>%
+  group_by(intonation, exclusion, syn_level, exclusivity) %>%
+  summarise(counts= n()) %>%
+  spread(exclusivity, counts) %>%
+  replace(is.na(.), 0) %>%
+  mutate(total = IN + EX)
+
+exclusivity_overall <-
+  all_data %>%
+  group_by(exclusivity) %>%
+  summarise(counts= n()) %>%
+  spread(exclusivity, counts) %>%
+  replace(is.na(.), 0) %>%
+  mutate(total = IN + EX) %>%
+  gather(exclusivity, counts, EX:IN) %>%
+  mutate(prop = counts / total)
+
+cds_disjunction_model <- summary(glmer(exclusivity ~ intonation + exclusion  + syn_level + (1|id), family="binomial", data=all_data))
+```
+
+## Results 
+
+First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation and consistency, and random effects for children found both factors significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
 
 Use standard APA citation format. Citations within the text should
 include the author's last name and year. If the authors' names are
