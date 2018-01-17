@@ -1,5 +1,5 @@
 ---
-title: "Learning Disjunction from Prosody and Consistency"
+title: "Rapid Acquisition of Disjunction from Prosody and Consistency"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
@@ -11,15 +11,10 @@ author-information: >
     }
 
 abstract: 
-    "The abstract should be one paragraph, indented 1/8 inch on both sides,
-in 9 point font with single spacing. The heading Abstract should
-be 10 point, bold, centered, with one line space below it. This
-one-paragraph abstract section is required only for standard spoken
-papers and standard posters (i.e., those presentations that will be
-represented by six page papers in the Proceedings)."
+    "Ambiguity poses a challenge to children learning the meaning of words. For example, a disjunction such as `A or B` can be interpreted as inclusive (A or B, or both) or exclusive (A or B, not both). Linguistic studies suggest that the core meaning of *or* is inclusive and despite the dominance of exclusive interpretations, children successfully and quickly learn the meaning of *or* as inclusive. This raises a larning puzzle: how can children quickly learn what they rarely hear? We argue that children can use the regularities of *or* in child-directed speech to learn the interpretation of a disjunction from a few examples."
     
 keywords:
-    "Add your choice of indexing terms or keywords; kindly use a semi-colon; between each term."
+    "language acquisition; word learning; logical words; and; or; nativism; constructivism."
     
 output: cogsci2016::cogsci_paper
 ---
@@ -48,48 +43,192 @@ library(lmerTest)
 
 # Introduction
 
-For general information about authoring in markdown, see **[here](http://rmarkdown.rstudio.com/authoring_basics.html).**
+The social media company LADbible reported the following in a tweet: "James Bond producer says next 007 could be black **or** a woman". A twitter user named Robert responded sarcastically with: "if only women could be black!" What in the producer's speech gave the impression that the next 007 could not be both black **and** a woman? The word *or*. A disjunction like "A or B" is associated with two interpretations: **inclusive**, and **exclusive**. "A or B" is inclusive when it is interpreted as "A or B **or both**". This is probably what LADbible meant when reporting the James Bond producer. However, "A or B" can also be exclusive: "A or B, but **not both**". Robert's response shows that he had an exclusive interpration of *or*. What factors determine the interpretation of *or* and how do children learn its meaning given this ambiguity?
 
-For standard spoken papers and standard posters, the entire 
-contribution (including figures, references, everything) can be 
-no longer than six pages. For abstract posters, the entire contribution 
-can be no longer than one page. For symposia, the entire contribution 
-can be no longer than two pages.
+A large body of research in linguistics and philosophy in the past 50 years has created a common consensus on the meaning of *or* (see @Aloni2016). Data on the interpretation of disjunction across different sentences, contexts, and even languages show that the core meaning of disjunction words such as *or* is **inclusive**. This is similar to the definition of disjunction in formal logics. The **exclusive** interpretation of *or* is the result of enhancing its inclusive semantics via other (extra-semantic) factors such as intonation [@pruitt2013interpretation], inconsistency of the options [@geurts2006exclusive], and pragmatic reasoning over the speaker's choice of *or* instead of *and* [@grice1975logicconvo]. Therefore, interpreting a disjunciton is a complex process that needs to take into account the meaning of *or* as well as different structural and contextual factors that accompany it. How do we, as children, learn such a complex interpretive system?
 
-The text of the paper should be formatted in two columns with an
-overall width of 7 inches (17.8 cm) and length of 9.25 inches (23.5
-cm), with 0.25 inches between the columns. Leave two line spaces
-between the last author listed and the text of the paper. The left
-margin should be 0.75 inches and the top margin should be 1 inch.
-\textbf{The right and bottom margins will depend on whether you use
-U.S. letter or A4 paper, so you must be sure to measure the width of
-the printed text.} Use 10 point Times Roman with 12 point vertical
-spacing, unless otherwise specified.
+There are two accounts of children's acquisition of disjunciton: a **constructivist** account, and 2. a **nativist** account. Under the constructivist account, children learn the meaning of *or* by paying attention to how parents use it in different contexts. They form usage-rules and expand their usage repertoire as they grow up. The prediction is that children's production of *or* is slow and gradual, mirroring what they hear from parents. @morris2008logically found that *and* is about 13 times more frequent than *or* in parents' speech to children.  As predicted by the constructivist account, @morris2008logically reported that children also learn to produce *and* much more quickly than *or*. They reach the adult rate of *and* at age 3 while for *or* there is a gradual increase in production, possibly reaching the adult level at ages 5 or 6. The faster acquisition of *and* is consistent with the constructivist theory that emphasizes the role of usage frequency in children's linguistic development. @morris2008logically also reported that the majority of *or* examples children hear are exclusive. He argued that consistent with the constructivist account, the majority of *or*'s children produce are also exclusive. Therefore, the inclusive semantics of *or* is developed after the exclusive interpretation.
 
-The title should be in 14 point, bold, and centered. The title should
-be formatted with initial caps (the first letter of content words
-capitalized and the rest lower case). Each author's name should appear
-on a separate line, 11 point bold, and centered, with the author's
-email address in parentheses. Under each author's name list the
-author's affiliation and postal address in ordinary 10 point  type.
+However, several comprehension studies of *or* in different linguistic contexts show that children as young as three-years old interpret *or* as inclusive disjunction [@crain2012emergence]. This is surprising given @morris2008logically's finding that the majority of *or* examples children hear are exclusive. How do children learn the interpretation of disjunction as inclusive if they rarely hear it? We call this the **learning puzzle of disjunction**. @crain2012emergence suggests that instead of learning from the parents' usage of *or*, children rely on the innate knowledge that the the disjunciton operator in their native language must have an inclusive meaning. This nativist account predicts that *or* is learned relatively quickly and accurately by children.
 
-Indent the first line of each paragraph by 1/8~inch (except for the
-first paragraph of a new section). Do not add extra vertical space
-between paragraphs.
+Here we present an alternative answer that provides a synthesis between the nativist and constructivist accounts. We show that children can use regularities in parents' usage of *or* to learn the interpretation of disjunction from a handful of examples. In study 1, we use a large scale corpus study of parents and children's speech to show that both *and* and *or* appear relatively quickly in children's speech and reach the adult rate by the age 4. This finding is consistent with the comprehension studies that show children have an adult-like understanding of these words by the age four. In study 2, we replicate @morris2008logically's finding that the majority of *or* examples in child-directed speech have an exclusive interpretation. However, we also show that these exclusive interpretations correlate systematically with two factors external to *or*: intonation and consistency of the options. Exclusive interpretations are either inconsistent in nature (e.g. clean or dirty) or carry a distinct rise-fall intonation. We show that setting aside these cases, the interpretation of a disjunction is inclusive.
 
-# Study 1
+We argue that if children track the interpretive cues that accompany a disjunction, they can tease apart the role of the word *or* from factors that accompany and enhance it to shape the exclusive interpretation. This way children can discover that exclusivity corrleates with rise-fall intonation and inconsistent options, while *or* itself does not exclude the option of both disjuncts being true. We implement this novel account in a decision-tree that correctly learns to predict the interpretation of a disjunction with 80% accuracy after only a few examples. Our results show that the richness and systematicity of children's linguistic input allows rapid acquisition of disjunction with no need for an innate assumptions specific to the meaning of disjunction. We discuss the important implications of this work for the theories of word learning in the last section.
 
-First level headings should be in 12 point , initial caps, bold and
-centered. Leave one line space above the heading and 1/4~line space
-below the heading.
+# Study 1: Corpus Study
+
+First, we conducted an exploratory and large scale investigation of *and* and *or* productions in parents and children. The goal of the study was to find out when children start producing these words and when they reach the adult rate of production. We conclude that children start producing *and* around 1.5 or 2 years of age, and *or* between the ages of 2 and 3. They reach the adult rate of production for *and* around 3 and for *or* around 4 or possibly earlier.
 
 ## Methods
 
-childes + childes-db
+```{r, childesdbImports, eval=FALSE, include=FALSE}
+# This chunk uses the childesr package to import all English words from childes-db and create the processed files "raw_normalized" and "bySpeechAct_normalized"
+# Since the file is too big, we only store two dataframes on github that are the results of running this chunk of code
 
-Only considered data between the ages of 1 and 6 because this is the age rage that had substantial amount of data for parents and children's speech.
+# Import all words from childes-db
+english_tokens <- get_tokens(collection = c("Eng-NA","Eng-UK"), 
+                          corpus = NULL, 
+                          role = c("target_child","Mother", "Father"),
+                          age = NULL, 
+                          sex = NULL, 
+                          child = NULL,
+                          token = "*")
+
+#Convert and store children's age in years using the lubridate package
+english_tokens$target_child_age_years <- 
+  english_tokens$target_child_age %>% 
+  duration("days") %>% 
+  as.numeric("years")
+
+#Take out data for the age range below 1 and above 6 years, this is because there is not much data in that range
+english_tokens %<>% filter(target_child_age_years < 6, target_child_age_years > 1)
+
+# Prepare the speech_act categories for this study based on the utterance_types in childes-db
+# Categories: declarative, impertaive, question, and other
+english_tokens$speech_act <-
+  recode(english_tokens$utterance_type, 
+         `broken for coding`="other",
+          `imperative_emphatic` = "imperative",
+         interruption = "other",
+         `interruption question` = "question",
+         `missing CA terminator` = "other",
+         `no break TCU continuation` = "other",
+         `question exclamation` = "question",
+         `quotation next line` = "other",
+         `quotation precedes` = "other",
+         `self interruption` = "other",
+         `self interruption question` = "question",
+         `trail off` = "other",
+         `trail off question` = "question"
+         )
+
+#####################################################################
+## Now we're going to process the English words we have in "english_tokens" in two ways
+
+######## 1. Just count all the instances of "and" and "or" and normalize them by the total number of words a speaker has said at a particular age (of the child)
+
+# Group the tokens (words) by speaker role and the age of the child, count how many words for each speaker at each age
+rawOverall_stats <-
+  english_tokens %>%
+  group_by(speaker_role, target_child_age_years) %>%
+  summarize(total_freq = n())
+
+# Group connective tokens by speaker and age of the child. count how many connective for each speaker at each age
+rawConnective_stats <-
+  english_tokens %>%
+  filter(gloss=="and" | gloss=="or") %>%
+  group_by(speaker_role, target_child_age_years, gloss) %>%
+  summarize(freq = n())
+
+# Normalize the connective count by dividing the connective frequency by the total word frequency for each speaker at each age
+rawNormalized_stats <-
+  full_join(rawConnective_stats, rawOverall_stats, by=c("speaker_role", "target_child_age_years")) %>%
+  mutate(relFreq = freq / total_freq, relFreq_ppt = relFreq * 1000)
+
+########## 2. Count all the instaces of "and" and "or" in DIFFERENT SPEECH ACTS and normalize them by THE TOTAL NUMBER OF WORDS IN SPEECH ACTS for each speaker at a particular age
+
+#group the tokesn by speaker, age, and speech act, then count them
+overall_stats <-
+  english_tokens %>%
+  group_by(speaker_role, speech_act, target_child_age_years) %>%
+  summarize(total_freq = n())
+
+# only take out "and" and "or"s, group them by speaker, age of the child, and speech act, count them
+connective_stats <-
+  english_tokens %>%
+  filter(gloss=="and" | gloss=="or") %>%
+  group_by(speech_act, speaker_role, target_child_age_years, gloss) %>%
+  summarize(freq = n())
+
+# now join the previous data frames together, divide the number of tokens in each group by the total number of words in that group
+normalized_stats <-
+  full_join(connective_stats, overall_stats, by=c("speech_act", "speaker_role", "target_child_age_years")) %>%
+  mutate(relFreq = freq / total_freq, relFreq_ppt = relFreq * 1000)
+
+########## Store both dataframes to be called later
+write.csv(rawNormalized_stats, "2_processed_data/raw_normalized.csv")
+write.csv(normalized_stats, "2_processed_data/bySpeechAct_normalized.csv")
+```
+
+We accessed the Child Language Data Exchange System (CHILDES, @macwhinney2000childes) via the online platform [childes-db](http://childes-db.stanford.edu/) and its associated R package childesr [@childesdb]. We extracted all instances of *and* and *or* from the English corpora (ENG-NA and ENG-UK). We limited our analysis to the data between one and six years because there is scarce data outside this age range. We computated the relative frequency of connective production by dividing the total number of *and*/*or* in the speech of fathers, mothers, and children at a particular age by the total number of words spoken at that age. We present the relative frequency as parts per thousand.
 
 ## Results
+
+```{r importProcessedData}
+rawNormalized <- read.csv("2_processed_data/raw_normalized.csv")
+bySpeechAct_normalized <- read.csv("2_processed_data/bySpeechAct_normalized.csv")
+```
+
+In figure 1, we show the relative frequencies of *and* and *or* in the speech of parents and children between one and six years. It is important to note that the y-axes for *and* vs. *or* show different ranges. This is due to the big difference in the relative frequencies of *and* and *or*. In the speech of parents, *and* is produced around 20 times per thousand words while *or* is only produced around 2 times per thousand words. This confirms previous findings that *or* is much less frequent in child directed speech than a similar funciton word such as *and*.
+
+```{r OverallConnectivePlots, fig.env="figure", fig.asp=0.7, fig.width=3.3, fig.show="hold", fig.pos="H", fig.cap= "The relative frequency of AND (top) and OR (bottom) per thousand words in the speech of fathers, mothers, and children between the ages of 1 and 6."}
+rawNormalized %>%
+  filter(gloss=="and") %>%
+  ggplot(aes(target_child_age_years, relFreq_ppt, shape = speaker_role, color=speaker_role)) +
+  geom_point(aes(), size=0.6) +
+#  facet_grid(gloss, scales="free_y") +
+  scale_y_continuous(limits = c(0, 75)) +
+  scale_x_continuous(breaks=seq(1,6)) +
+  labs(x = "", y="ANDs Per thousand words") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=0.9) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue")) +
+  theme_few() +
+  theme(legend.position=c(0.9, 0.8), text = element_text(size=9)) + 
+  guides(shape=guide_legend(title=NULL), color=guide_legend(title=NULL))
+
+rawNormalized %>%
+  filter(gloss=="or") %>%
+  ggplot(aes(target_child_age_years, relFreq_ppt, shape = speaker_role, color=speaker_role)) +
+  geom_point(aes(), size=0.6) +
+#  facet_grid(speech_act~gloss, scales="free_y") +
+  scale_y_continuous(limits = c(0, 8)) +
+  scale_x_continuous(breaks=seq(1,6)) +
+  labs(x = "Child's Age (years)", y="ORs per thousand words") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=0.9) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue")) + 
+  theme_few() +
+  theme(legend.position=c(0.9, 0.8), text = element_text(size=9))+ 
+  guides(shape=FALSE, color=FALSE)
+```
+
+*And* and *or* seem to show different developmental rajectories in the speech of children. For *and*, there is a rapid increase in its production between the ages of 1.5 and 3 before it reaches the adult rate around the age 3 and stay at that level until the age 6. For *or*, on the other hand, we see a slow incrase from the age 2 until the age 6 when it reaches the adult rate. This difference in the development of *and* & *or* production was attributed to the frequency of these items in child-directed speech. Since *and* is much more frequent than *or*, it is learned much faster than *or*. @morris2008logically argued that such patterns support the item-based and usage-based acquisition of logical words.
+
+However, the analysis above does not control for other factors that can affect the production of words by children. An important factor to control for is the development of speech acts. While content words such as *dog* or *chair* may appear freely in different types of speech acts, function words are highly constrained by the type of speech acts they can appear in. For example, it is reasoable to assume that question words such as *how* and *why* are much more likey to occur in questions than statements (declaratives). If parent-child interaction is such that parents ask more questions than children, it is not surprising to find higher rates of *how* and *why* production in parents than children. Therefore, it is important to control for the speech act a function word appears in.
+
+Figure 2 shows the relative frequencies of *and* and *or* in questions vs. declaratives, in the speech of parents and children between one and six years. Here, the relative frequency is computed by dividing the total number of *and*/*or* in a question/declarative in the speech of fathers, mothers, and children at a particular age, by the total number of words in a question/declarative spoken at that age. As before, we present the relative frequency as parts per thousand.
+
+```{r byspeechActPlots, fig.env="figure", fig.asp=1, fig.width=3.3, fig.show="hold", fig.pos="H", fig.cap= "The relative frequency of AND (top) and OR (bottom) per thousand words in delcaratives and questions in the speech of fathers, mothers, and children between the ages of 1 and 6,"}
+bySpeechAct_normalized %>%
+  filter(speech_act == "declarative" | speech_act == "question", gloss=="and") %>%
+  ggplot(aes(target_child_age_years, relFreq_ppt, shape=speaker_role, color = speaker_role)) +
+  geom_point(aes(color=speaker_role), size=0.6) +
+  facet_grid(speech_act~gloss, scales="free_y") +
+  scale_y_continuous(limits = c(0, 60)) +
+  scale_x_continuous(breaks=seq(1,6)) +
+  labs(x = "", y="Per thousand words") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=0.9) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue")) + 
+  theme_few() +
+  theme(text = element_text(size=9)) + 
+  guides(shape=FALSE, color=FALSE)
+
+bySpeechAct_normalized %>%
+  filter(gloss=="or", speech_act == "declarative" | speech_act == "question") %>%
+  ggplot(aes(target_child_age_years, relFreq_ppt, shape=speaker_role, color = speaker_role)) +
+  geom_point(aes(color=speaker_role), size=0.6) +
+  facet_grid(speech_act~gloss, scales="free_y") +
+  scale_y_continuous(limits = c(0,7)) +
+  scale_x_continuous(breaks=seq(1,6)) +
+  labs(x = "Age (years)", y="Per thousand words") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=0.9) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue")) + 
+  theme_few() +
+  theme(text = element_text(size=9)) + 
+  guides(shape=FALSE, color=FALSE)
+```
+
+The results show similar developmental trajectories for the production of *and* and *or* in children. For both words, there is a relatively rapid incease in their frequency between the ages of 2 and 4 before reaching the parent rate at the age of 4 and staying at that rate until the age of 6. This pattern of production is consistent with the nativist observations that the acquisition of *and* and *or* is rapid and that children have an adult-like comprehension of these two connectives at the age 4. 
+
 
 ## Summary
 
@@ -99,8 +238,9 @@ In the first six years, it appears that children reach the adult production rate
 
 This is at least partly because or is more frequent in questions and children produce fewer questions than parents.
 
-Considering this asymmetry in speech act production, it is likely that or is learned relatively quickly and before the age of 4.
+The developmental trajectory of connective production is best described as a quick increase in production between the ages of 2 and 4 and staying around the parents' rate between the ages 4 and 6. This is compatible with the comprehension studies which suggest children understand *and* and *or* by the age four. 
 
+<<<<<<< HEAD
 # Study 2 (Akshay)
 ```{r warmup, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -203,6 +343,9 @@ cds_disjunction_model <- summary(glmer(exclusivity ~ intonation + exclusion  + s
 ## Results 
 
 First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation and consistency, and random effects for children found both factors significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
+=======
+# Study 2: Annotation Study
+>>>>>>> origin/master
 
 Use standard APA citation format. Citations within the text should
 include the author's last name and year. If the authors' names are
@@ -295,7 +438,13 @@ tab1 <- xtable::xtable(summary(out)$coef, digits=c(0, 2, 2, 1, 2),
 print(tab1, type="latex", comment = F, table.placement = "H")
 ```
 
-# Conclusion (Masoud)
+# Conclusion
+
+List what you showed and argued for.
+
+Talk about important implications for theories of word learning.
+
+Possibly talk about the original tweet and how that falls still outside what your algorithm learns.
 
 # Acknowledgements
 
@@ -307,6 +456,72 @@ the end of the paper.
 ```{r}
 # References will be generated automatically by Pandoc and included here.
 # The following code is some latex to format the bibliography. Do not remove it.
+```
+
+
+```{r localImport, include=FALSE, eval=FALSE}
+# read the file containing all the "and" and "or" tokens
+connective_tokens <- read.csv("1_raw_data/connective_tokens.csv")
+# Read the file on speaker statistics in Childes English corpora
+speaker_stats <- read.csv("1_raw_data/speaker_stats.csv")
+
+# Make the tokens case insensitive
+connective_tokens$gloss %<>% tolower()
+
+# add age in years to the tokens dataframe
+connective_tokens$target_child_age_years <- 
+  connective_tokens$target_child_age %>% 
+  duration("days") %>% 
+  as.numeric("years")
+
+# Excluding data from children young than 1 and older than 7
+connective_tokens %<>% filter(target_child_age_years < 6, target_child_age_years > 1)
+
+# add age in years to the speaker dataframe
+speaker_stats$target_child_age_years <- 
+  speaker_stats$target_child_age %>% 
+  duration("days") %>% 
+  as.numeric("years")
+
+# create a table of token frequency at different ages by different speakers
+speaker_info <- 
+  speaker_stats %>%
+  group_by(speaker_role, target_child_age_years) %>%
+  summarize(total_token = sum(num_tokens))
+```
+
+```{r connectiveByAgeSpeaker, include=FALSE, eval=FALSE}
+connective_ByAgeSpeaker <-
+  connective_tokens %>%
+  group_by(target_child_age_years, speaker_role, gloss) %>%
+  summarise(freq = n()) %>%
+  full_join(speaker_info, by = c("target_child_age_years", "speaker_role")) %>%
+  mutate(ppm = (freq / total_token) * 1000) %>%
+  na.omit()
+```
+
+```{r questionDeclarative, include=FALSE, eval=FALSE}
+connective_byUtteranceAgeRole <-
+  connective_tokens %>%
+  group_by(target_child_age_years, speaker_role, gloss, utterance_type) %>%
+  summarise(freq = n()) %>%
+  filter(utterance_type == "declarative" | utterance_type == "question")
+
+# normalize by the total number of tokens provided by speakers
+allTokens_byRoleAgeUtterance <-
+  read.csv("1_raw_data/allTokens_byRoleAgeUtterance.csv") %>%
+  select(target_child_age, freq_total, speaker_role, utterance_type) %>%
+  filter(utterance_type == "declarative" | utterance_type == "question")
+
+allTokens_byRoleAgeUtterance$target_child_age_years <- 
+  allTokens_byRoleAgeUtterance$target_child_age %>% 
+  duration("days") %>% 
+  as.numeric("years")
+
+connective_normalized <-
+  full_join(connective_byUtteranceAgeRole, allTokens_byRoleAgeUtterance, 
+            by = c("target_child_age_years", "speaker_role", "utterance_type")) %>%
+  mutate(ppm = (freq / freq_total) * 1000)
 ```
 
 \setlength{\parindent}{-0.1in} 
