@@ -218,7 +218,7 @@ directed speech than a similar funciton word such as \emph{and}.
 \end{CodeChunk}
 
 \emph{And} and \emph{or} seem to show different developmental
-rajectories in the speech of children. For \emph{and}, there is a rapid
+trajectories in the speech of children. For \emph{and}, there is a rapid
 increase in its production between the ages of 1.5 and 3 before it
 reaches the adult rate around the age 3 and stay at that level until the
 age 6. For \emph{or}, on the other hand, we see a slow incrase from the
@@ -283,54 +283,84 @@ compatible with the comprehension studies which suggest children
 understand \emph{and} and \emph{or} by the age four.
 
 \textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}
-HEAD \# Study 2 (Akshay)
+HEAD
+
+\section{Study 2: Annotation Study}\label{study-2-annotation-study}
+
+Second, we conducted an detailed and small-scale investigation of
+\emph{or} productions in parents and children. The goal of the study was
+to find out how children learn the meaning of \emph{or} from such little
+data. We conclude that children hear significantly more exclusive
+\emph{or} supporting Morris (2008)'s findings. Additionally, we find
+that the exclusive uses of \emph{or} are rich in structures that index
+the exclusive interpretation, specifically intonation and consistency of
+the disjuncts. Exclusive interpretations are either inconsistent in
+nature (e.g.~clean or dirty) or carry a distinct rise-fall intonation.
+We then show a decision tree model can learn to accurately
+(\textgreater{}80\%) predict exclusivity using this information after
+seeing few (\textless{}20) examples.
 
 \subsection{Methods}\label{methods-1}
 
-Children acquire adult-like production of the word ``or'' by the age of
-4 despite having 13x less occurances than ``and'' in CDS. To develop a
-specific model for how children might learn the exclusivity
-interpretation of or using such little data, the Providence database was
-analyzed. Utterances extracted utterances containing the word ``or'' and
-2 utterances before/after it were extracted to provide examples of
-``or'' use along with surrounding context. Utterances were annotated for
-four major categories. Exclusivity Interpretation: This category
-represents the goal task: understanding the intended form of
-disjunction. Intonation: This category was divided into three main
-intonation patterns over the disjuncts. Intonation could be flat, rising
-overall, or rise-fall. These three categories were selected because
-rise-fall in particular has been shown to lead to an exclusive
-interpretation of the disjunction. Consistency: This category tracked
-the logical consistency of the disjuncts. Two disjuncts were marked as
-inconsistent if replacing the word ``or'' with ``and'' produced a
-logical conflict. For example in ``Are your feet clean or dirty?'', the
-disjuncts are inconsistent: the addresee's feet cannot be both clean and
-dirty. Syntactic Level: This category marked the structure of the
-disjuncts of the utterance. Disjuncts could be sentential or
-subsentential. Two raters annotated the same 240 utterances to develop a
-reliability score. The interrater reliability was calculated over 8
-iterations of 30 examples. Training only completed after 3 consecutive
-iterations with reliability over 0.7 for all categories.
+We accessed the Child Language Data Exchange System (CHILDES, MacWhinney
+(2000)) via the online platform
+\href{http://childes-db.stanford.edu/}{childes-db} and its associated R
+package childesr (Sanchez et al., in prep). We extracted all instances
+of \emph{or} from the English corpus Providence along with the two
+utterances before and after the utterance containing \emph{or}. We
+limited our analysis to the data between 11 months and four years
+because there is scarce data outside this age range. We annotated the
+examples for four major categories. \emph{Exclusivity Interpretation}:
+This category represents the goal task: understanding the intended form
+of disjunction. \emph{Intonation}: This category was divided into three
+main intonation patterns over the disjuncts. Intonation could be flat,
+rising overall, or rise-fall. These three categories were selected
+because rise-fall in particular has been shown to lead to an exclusive
+interpretation of the disjunction. \emph{Consistency}: This category
+tracked the logical consistency of the disjuncts. Two disjuncts were
+marked as inconsistent if replacing the word ``or'' with ``and''
+produced a logical conflict. For example in ``Are your feet clean or
+dirty?'', the disjuncts are inconsistent: the addresee's feet cannot be
+both clean and dirty. \emph{Syntactic Level}: This category marked the
+structure of the disjuncts of the utterance. Disjuncts could be
+sentential or subsentential.
+
+Two raters annotated the same 240 utterances to develop a reliability
+score. The interrater reliability was calculated over 8 iterations of 30
+examples. Training only completed after 3 consecutive iterations with
+reliability over 0.7 for all categories.
 
 \subsection{Results}\label{results-1}
 
-\section{\texorpdfstring{First, similar to Morris (2008), we found that
-the majority of \emph{or} examples in CDS receive an exclusive
-interpretation (\(\sim\)\%65). However, the rate of exclusive
-interpretations change systematically when we break the data down by
-prosody and consistency (figure below). A mixed-effects binomial
-logistic regression with the fixed effects of intonation and
-consistency, and random effects for children found both factors
-significant in interpreting disjunctions. Disjunctions were more likely
-to be interpreted as exlclusive if they received a rise-fall intonation
-(\(\beta\)=-3.79, \(z\)=1.66, \(p < 0.001\)) or if they were
-inconsistent(\(\beta\)=-2.2, \(z\)=2.08, \(p < 0.001\)). Disjunctions
-were more likely to be interpreted as inclusive if they were consistent
-and received a rising intonation (\(\beta\)=0.58, \(z\)=0.24,
-\(p < 0.001\)) or flat intonation (\(\beta\)=0.38, \(z\)=0.27,
-\(p < 0.001\)).}{First, similar to Morris (2008), we found that the majority of or examples in CDS receive an exclusive interpretation (\textbackslash{}sim\%65). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation and consistency, and random effects for children found both factors significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation (\textbackslash{}beta=-3.79, z=1.66, p \textless{} 0.001) or if they were inconsistent(\textbackslash{}beta=-2.2, z=2.08, p \textless{} 0.001). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation (\textbackslash{}beta=0.58, z=0.24, p \textless{} 0.001) or flat intonation (\textbackslash{}beta=0.38, z=0.27, p \textless{} 0.001).}}\label{first-similar-to-morris-2008-we-found-that-the-majority-of-or-examples-in-cds-receive-an-exclusive-interpretation-sim65.-however-the-rate-of-exclusive-interpretations-change-systematically-when-we-break-the-data-down-by-prosody-and-consistency-figure-below.-a-mixed-effects-binomial-logistic-regression-with-the-fixed-effects-of-intonation-and-consistency-and-random-effects-for-children-found-both-factors-significant-in-interpreting-disjunctions.-disjunctions-were-more-likely-to-be-interpreted-as-exlclusive-if-they-received-a-rise-fall-intonation-beta-3.79-z1.66-p-0.001-or-if-they-were-inconsistentbeta-2.2-z2.08-p-0.001.-disjunctions-were-more-likely-to-be-interpreted-as-inclusive-if-they-were-consistent-and-received-a-rising-intonation-beta0.58-z0.24-p-0.001-or-flat-intonation-beta0.38-z0.27-p-0.001.}
+First, similar to Morris (2008), we found that the majority of \emph{or}
+examples in CDS receive an exclusive interpretation (\(\sim\)\%65).
+However, the rate of exclusive interpretations change systematically
+when we break the data down by prosody and consistency (figure below). A
+mixed-effects binomial logistic regression with the fixed effects of
+intonation, consistency, and sytantic level, and random effects for
+children found intonation and consistency significant in interpreting
+disjunctions. Disjunctions were more likely to be interpreted as
+exlclusive if they received a rise-fall intonation (\(\beta\)=-3.79,
+\(z\)=1.66, \(p < 0.001\)) or if they were inconsistent(\(\beta\)=-2.2,
+\(z\)=2.08, \(p < 0.001\)). Disjunctions were more likely to be
+interpreted as inclusive if they were consistent and received a rising
+intonation (\(\beta\)=0.58, \(z\)=0.24, \(p < 0.001\)) or flat
+intonation (\(\beta\)=0.38, \(z\)=0.27, \(p < 0.001\)).
 
-\section{Study 2: Annotation Study}\label{study-2-annotation-study}
+Figure 3 demonstrates the clear relationship between exclusive
+interpretation, rise-fall intonation, and inconsistent disjuncts.
+Without these markers of exclusivity, the inclusive interpretations
+remain. This supports Crain (2012)'s claim that the ``default''
+interpretation of ``or'' is inclusive.
+
+Next, using Sklearn's Decision Tree Module, we built a predictive model
+to train on annotated \emph{or} utterances and predict the exclusivity
+of unseen \emph{or} utterances (annotated for intonation and
+consistency). Averaged over 100 trials and training on 200 examples, the
+average accuracy of a binary tree was 83\%. More remarkably, the tree
+achieved an average of 80\% accuracy after training on only 20 examples.
+
+=======
 
 \begin{quote}
 \begin{quote}
@@ -453,8 +483,8 @@ You can use the xtable function in the xtable package.
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
-(Intercept) & -0.07 & 0.11 & -0.6 & 0.53 \\ 
-  x & 2.00 & 0.13 & 15.8 & 0.00 \\ 
+(Intercept) & 0.17 & 0.11 & 1.6 & 0.11 \\ 
+  x & 2.02 & 0.10 & 19.2 & 0.00 \\ 
    \hline
 \end{tabular}
 \caption{This table prints across one column.} 

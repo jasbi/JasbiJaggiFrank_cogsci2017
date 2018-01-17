@@ -191,7 +191,7 @@ rawNormalized %>%
   guides(shape=FALSE, color=FALSE)
 ```
 
-*And* and *or* seem to show different developmental rajectories in the speech of children. For *and*, there is a rapid increase in its production between the ages of 1.5 and 3 before it reaches the adult rate around the age 3 and stay at that level until the age 6. For *or*, on the other hand, we see a slow incrase from the age 2 until the age 6 when it reaches the adult rate. This difference in the development of *and* & *or* production was attributed to the frequency of these items in child-directed speech. Since *and* is much more frequent than *or*, it is learned much faster than *or*. @morris2008logically argued that such patterns support the item-based and usage-based acquisition of logical words.
+*And* and *or* seem to show different developmental trajectories in the speech of children. For *and*, there is a rapid increase in its production between the ages of 1.5 and 3 before it reaches the adult rate around the age 3 and stay at that level until the age 6. For *or*, on the other hand, we see a slow incrase from the age 2 until the age 6 when it reaches the adult rate. This difference in the development of *and* & *or* production was attributed to the frequency of these items in child-directed speech. Since *and* is much more frequent than *or*, it is learned much faster than *or*. @morris2008logically argued that such patterns support the item-based and usage-based acquisition of logical words.
 
 However, the analysis above does not control for other factors that can affect the production of words by children. An important factor to control for is the development of speech acts. While content words such as *dog* or *chair* may appear freely in different types of speech acts, function words are highly constrained by the type of speech acts they can appear in. For example, it is reasoable to assume that question words such as *how* and *why* are much more likey to occur in questions than statements (declaratives). If parent-child interaction is such that parents ask more questions than children, it is not surprising to find higher rates of *how* and *why* production in parents than children. Therefore, it is important to control for the speech act a function word appears in.
 
@@ -241,7 +241,6 @@ This is at least partly because or is more frequent in questions and children pr
 The developmental trajectory of connective production is best described as a quick increase in production between the ages of 2 and 4 and staying around the parents' rate between the ages 4 and 6. This is compatible with the comprehension studies which suggest children understand *and* and *or* by the age four. 
 
 <<<<<<< HEAD
-# Study 2 (Akshay)
 ```{r warmup, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(ggthemes)
@@ -280,14 +279,18 @@ all_data$consistency <- fct_recode(all_data$exclusion, "Consistent" = "ELS", "In
 all_data$intonation <- fct_recode(all_data$intonation, "Flat" = "0", "Rising" = "1", "Rise-Fall" = "2")
 ```
 
+# Study 2: Annotation Study
+
+Second, we conducted an detailed and small-scale investigation of *or* productions in parents and children. The goal of the study was to find out how children learn the meaning of *or* from such little data. We conclude that children hear significantly more exclusive *or* supporting @morris2008logically's findings. Additionally, we find that the exclusive uses of *or* are rich in structures that index the exclusive interpretation, specifically intonation and consistency of the disjuncts. Exclusive interpretations are either inconsistent in nature (e.g. clean or dirty) or carry a distinct rise-fall intonation. We then show a decision tree model can learn to accurately (>80%) predict exclusivity using this information after seeing few (<20) examples. 
+
 ## Methods 
 
-Children acquire adult-like production of the word "or" by the age of 4 despite having 13x less occurances than "and" in CDS. To develop a specific model for how children might learn the exclusivity interpretation of or using such little data, the Providence database was analyzed. Utterances extracted utterances containing the word "or" and 2 utterances before/after it were extracted to provide examples of "or" use along with surrounding context.
-Utterances were annotated for four major categories. 
-Exclusivity Interpretation: This category represents the goal task: understanding the intended form of disjunction. 
-Intonation: This category was divided into three main intonation patterns over the disjuncts. Intonation could be flat, rising overall, or rise-fall. These three categories were selected because rise-fall in particular has been shown to lead to an exclusive interpretation of the disjunction. 
-Consistency: This category tracked the logical consistency of the disjuncts. Two disjuncts were marked as inconsistent if replacing the word "or" with "and" produced a logical conflict. For example in “Are your feet clean or dirty?”, the disjuncts are inconsistent: the addresee’s feet cannot be both clean and dirty.
-Syntactic Level: This category marked the structure of the disjuncts of the utterance. Disjuncts could be sentential or subsentential. 
+We accessed the Child Language Data Exchange System (CHILDES, @macwhinney2000childes) via the online platform [childes-db](http://childes-db.stanford.edu/) and its associated R package childesr [@childesdb]. We extracted all instances of *or* from the English corpus Providence along with the two utterances before and after the utterance containing *or*. We limited our analysis to the data between 11 months and four years because there is scarce data outside this age range. We annotated the examples for four major categories. 
+*Exclusivity Interpretation*: This category represents the goal task: understanding the intended form of disjunction. 
+*Intonation*: This category was divided into three main intonation patterns over the disjuncts. Intonation could be flat, rising overall, or rise-fall. These three categories were selected because rise-fall in particular has been shown to lead to an exclusive interpretation of the disjunction. 
+*Consistency*: This category tracked the logical consistency of the disjuncts. Two disjuncts were marked as inconsistent if replacing the word "or" with "and" produced a logical conflict. For example in “Are your feet clean or dirty?”, the disjuncts are inconsistent: the addresee’s feet cannot be both clean and dirty.
+*Syntactic Level*: This category marked the structure of the disjuncts of the utterance. Disjuncts could be sentential or subsentential. 
+
 Two raters annotated the same 240 utterances to develop a reliability score. The interrater reliability was calculated over 8 iterations of 30 examples. Training only completed after 3 consecutive iterations with reliability over 0.7 for all categories.
 
 ```{r data_wrangling, echo=FALSE, warning=FALSE, message=FALSE}
@@ -342,9 +345,29 @@ cds_disjunction_model <- summary(glmer(exclusivity ~ intonation + exclusion  + s
 
 ## Results 
 
-First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation and consistency, and random effects for children found both factors significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
+First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation, consistency, and sytantic level, and random effects for children found intonation and consistency significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
+
+```{r raw_plot, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE, fig.width=2, fig.height=2, fig.cap = "Overall distribution of exclusive and inclusive interpretations. Error bars represent bootstrapped 95\\% confidence intervals"}
+ggplot(raw_data, aes(x= EXIN, y=prop, fill=EXIN)) + 
+  theme_few(base_size = 16) + 
+  geom_col(width=0.7) +
+  geom_linerange(aes(ymax = cih, ymin = cil)) + 
+  guides(fill=FALSE) +
+  labs(title = "", x = "", y = "") + 
+  scale_colour_solarized()
+```
+
+Figure 3 demonstrates the clear relationship between exclusive interpretation,  rise-fall intonation, and inconsistent disjuncts. Without these markers of exclusivity, the inclusive interpretations remain. This supports @crain2012emergence's claim that the "default" interpretation of "or" is inclusive. 
+
+Next, using Sklearn's Decision Tree Module, we built a predictive model to train on annotated *or* utterances and predict the exclusivity of unseen *or* utterances (annotated for intonation and consistency). Averaged over 100 trials and training on 200 examples, the average accuracy of a binary tree was 83%. More remarkably, the tree achieved an average of 80% accuracy after training on only 20 examples. The success of such a simple tree indicates that children could use a simple model to rapidly learn the exclusive interpretation of *or* from little data. 
+
+![Decision Tree Accuracy as a function of number of examples seen](figs/learning_curve.png)
+
+## Summary 
+
+Exclusive instances of *or* are far more common than inclusive instances. Focusing on intonation and disjunct consistency, children can discover that exclusivity corrleates with factors external to *or*. Without these external markers, *or* itself does not exclude the option of both disjuncts being true. 
 =======
-# Study 2: Annotation Study
+
 >>>>>>> origin/master
 
 Use standard APA citation format. Citations within the text should
