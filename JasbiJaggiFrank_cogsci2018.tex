@@ -290,37 +290,31 @@ to find out how children learn the meaning of \emph{or} from such little
 data. We conclude that children hear significantly more exclusive
 \emph{or} supporting Morris (2008)'s findings. Additionally, we find
 that the exclusive uses of \emph{or} are rich in structures that index
-the exclusive interpretation, specifically intonation and consistency of
-the disjuncts. Exclusive interpretations are either inconsistent in
-nature (e.g.~clean or dirty) or carry a distinct rise-fall intonation.
-We then show a decision tree model can learn to accurately
-(\textgreater{}80\%) predict exclusivity using this information after
-seeing few (\textless{}20) examples.
+the exclusive interpretation. These indicative structures include
+specifically intonation and consistency of the disjuncts. Exclusive
+interpretations are either inconsistent in nature (e.g.~clean or dirty)
+or carry a distinct rise-fall intonation. We then show that a decision
+tree model can learn to accurately (\textgreater{}80\%) predict
+exclusivity using this information after seeing few (\textless{}20)
+examples.
 
 \subsection{Methods}\label{methods-1}
 
-We accessed the Child Language Data Exchange System (CHILDES, MacWhinney
-(2000)) via the online platform
-\href{http://childes-db.stanford.edu/}{childes-db} and its associated R
-package childesr (Sanchez et al., in prep). We extracted all instances
-of \emph{or} from the English corpus Providence along with the two
+We accessed the Providence corpus via CHILDES (Demuth, Culbertson, \&
+Alter, 2006). We extracted all instances of \emph{or} along with the two
 utterances before and after the utterance containing \emph{or}. We
-limited our analysis to the data between 11 months and four years
-because there is scarce data outside this age range. We annotated the
-examples for four major categories. \emph{Exclusivity Interpretation}:
-This category represents the goal task: understanding the intended form
-of disjunction. \emph{Intonation}: This category was divided into three
-main intonation patterns over the disjuncts. Intonation could be flat,
-rising overall, or rise-fall. These three categories were selected
-because rise-fall in particular has been shown to lead to an exclusive
-interpretation of the disjunction. \emph{Consistency}: This category
-tracked the logical consistency of the disjuncts. Two disjuncts were
-marked as inconsistent if replacing the word ``or'' with ``and''
-produced a logical conflict. For example in ``Are your feet clean or
-dirty?'', the disjuncts are inconsistent: the addresee's feet cannot be
-both clean and dirty. \emph{Syntactic Level}: This category marked the
-structure of the disjuncts of the utterance. Disjuncts could be
-sentential or subsentential.
+annotated the examples for four major categories. \emph{Exclusivity
+Interpretation}: This category represents the goal task: understanding
+the intended form of disjunction. \emph{Intonation}: This category was
+divided into three main intonation patterns over the disjuncts.
+Intonation could be flat, rising overall, or rise-fall. These three
+categories were selected because rise-fall in particular has been shown
+to lead to an exclusive interpretation of the disjunction
+({\textbf{???}}). \emph{Consistency}: This category tracked the logical
+consistency of the disjuncts. Two disjuncts were marked as inconsistent
+if replacing the word ``or'' with ``and'' produced a logical conflict.
+For example in ``Are your feet clean or dirty?'', the disjuncts are
+inconsistent: the addresee's feet cannot be both clean and dirty.
 
 Two raters annotated the same 240 utterances to develop a reliability
 score. The interrater reliability was calculated over 8 iterations of 30
@@ -331,18 +325,19 @@ reliability over 0.7 for all categories.
 
 First, similar to Morris (2008), we found that the majority of \emph{or}
 examples in CDS receive an exclusive interpretation (\(\sim\)\%65).
-However, the rate of exclusive interpretations change systematically
-when we break the data down by prosody and consistency (figure below). A
-mixed-effects binomial logistic regression with the fixed effects of
-intonation, consistency, and sytantic level, and random effects for
-children found intonation and consistency significant in interpreting
-disjunctions. Disjunctions were more likely to be interpreted as
-exlclusive if they received a rise-fall intonation (\(\beta\)=-3.79,
-\(z\)=1.66, \(p < 0.001\)) or if they were inconsistent(\(\beta\)=-2.2,
-\(z\)=2.08, \(p < 0.001\)). Disjunctions were more likely to be
-interpreted as inclusive if they were consistent and received a rising
-intonation (\(\beta\)=0.58, \(z\)=0.24, \(p < 0.001\)) or flat
-intonation (\(\beta\)=0.38, \(z\)=0.27, \(p < 0.001\)).
+Figure 3 shows this difference in distribution. However, the rate of
+exclusive interpretations change systematically when we break the data
+down by prosody and consistency (figure below). A mixed-effects binomial
+logistic regression with the fixed effects of intonation, consistency,
+and random effects for children found intonation and consistency
+significant in interpreting disjunctions. Disjunctions were more likely
+to be interpreted as exlclusive if they received a rise-fall intonation
+(\(\beta\)=-3.79, \(z\)=1.66, \(p < 0.001\)) or if they were
+inconsistent(\(\beta\)=-2.2, \(z\)=2.08, \(p < 0.001\)). Disjunctions
+were more likely to be interpreted as inclusive if they were consistent
+and received a rising intonation (\(\beta\)=0.58, \(z\)=0.24,
+\(p < 0.001\)) or flat intonation (\(\beta\)=0.38, \(z\)=0.27,
+\(p < 0.001\)).
 
 \begin{CodeChunk}
 \begin{figure}[tb]
@@ -372,18 +367,18 @@ interpretation of ``or'' is inclusive.
 \end{figure*}
 \end{CodeChunk}
 
-Next, using Sklearn's Decision Tree Module (Pedregosa et al., 2011), we
-built a predictive model to train on annotated \emph{or} utterances and
-predict the exclusivity of unseen \emph{or} utterances (annotated for
-intonation and consistency). Averaged over 100 trials and training on
-200 examples, the average accuracy of a binary tree was 83\%. More
-remarkably, the tree achieved an average of 80\% accuracy after training
-on only 20 examples. The success of such a simple tree indicates that
-children could use a simple model to rapidly learn the exclusive
-interpretation of \emph{or} from little data.
+Next, using Sci-kit Learn's Decision Tree Module (Pedregosa et al.,
+2011), we built a predictive model to train on annotated \emph{or}
+utterances and predict the exclusivity of unseen \emph{or} utterances
+(annotated for intonation and consistency). Averaged over 100 trials and
+training on 200 examples, the average accuracy of a binary tree was
+83\%. More remarkably, the tree achieved an average of 80\% accuracy
+after training on only 20 examples. The success of such a simple tree
+indicates that children could use a simple model to rapidly learn the
+exclusive interpretation of \emph{or} from little data.
 
 \begin{CodeChunk}
-\begin{figure}[t]
+\begin{figure}[h]
 
 {\centering \includegraphics{figs/learningCurve-1} 
 
@@ -395,11 +390,16 @@ interpretation of \emph{or} from little data.
 
 \subsection{Summary}\label{summary-1}
 
-Exclusive instances of \emph{or} are far more common than inclusive
-instances. Focusing on intonation and disjunct consistency, children can
-discover that exclusivity corrleates with factors external to \emph{or}.
-Without these external markers, \emph{or} itself does not exclude the
-option of both disjuncts being true.
+In study 2, we confirm Morris (2008)'s finding that exclusive
+interpretations of \emph{or} are far more common than inclusive
+interpretations. However, we also show that the majority of these
+exclusive interpretations coincide with systematic indicators.
+Disjunctions that are accompanied by rise-fall intonation or
+inconsistent disjuncts are far more likely to be exclusive. Disjunctions
+that do no bear these features are more likely to be inclusive.
+Accounting for these external factors, a simple decision tree can
+rapidly learn to predict the exclusive interpretation of the
+disjunction.
 
 \section{Conclusion}\label{conclusion}
 
@@ -428,6 +428,11 @@ encyclopedia of philosophy}. Stanford University. Retrieved from
 \hypertarget{ref-crain2012emergence}{}
 Crain, S. (2012). \emph{The emergence of meaning}. Cambridge University
 Press.
+
+\hypertarget{ref-demuth2006word}{}
+Demuth, K., Culbertson, J., \& Alter, J. (2006). Word-minimality,
+epenthesis and coda licensing in the early acquisition of english.
+\emph{Language and Speech}, \emph{49}(2), 137--173.
 
 \hypertarget{ref-geurts2006exclusive}{}
 Geurts, B. (2006). Exclusive disjunction without implicatures.

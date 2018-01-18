@@ -281,15 +281,14 @@ all_data$intonation <- fct_recode(all_data$intonation, "Flat" = "0", "Rising" = 
 
 # Study 2: Annotation Study
 
-Second, we conducted an detailed and small-scale investigation of *or* productions in parents and children. The goal of the study was to find out how children learn the meaning of *or* from such little data. We conclude that children hear significantly more exclusive *or* supporting @morris2008logically's findings. Additionally, we find that the exclusive uses of *or* are rich in structures that index the exclusive interpretation, specifically intonation and consistency of the disjuncts. Exclusive interpretations are either inconsistent in nature (e.g. clean or dirty) or carry a distinct rise-fall intonation. We then show a decision tree model can learn to accurately (>80%) predict exclusivity using this information after seeing few (<20) examples. 
+Second, we conducted an detailed and small-scale investigation of *or* productions in parents and children. The goal of the study was to find out how children learn the meaning of *or* from such little data. We conclude that children hear significantly more exclusive *or* supporting @morris2008logically's findings. Additionally, we find that the exclusive uses of *or* are rich in structures that index the exclusive interpretation. These indicative structures include specifically intonation and consistency of the disjuncts. Exclusive interpretations are either inconsistent in nature (e.g. clean or dirty) or carry a distinct rise-fall intonation. We then show that a decision tree model can learn to accurately (>80%) predict exclusivity using this information after seeing few (<20) examples. 
 
 ## Methods 
 
-We accessed the Child Language Data Exchange System (CHILDES, @macwhinney2000childes) via the online platform [childes-db](http://childes-db.stanford.edu/) and its associated R package childesr [@childesdb]. We extracted all instances of *or* from the English corpus Providence along with the two utterances before and after the utterance containing *or*. We limited our analysis to the data between 11 months and four years because there is scarce data outside this age range. We annotated the examples for four major categories. 
+We accessed the Providence corpus via CHILDES [@demuth2006word]. We extracted all instances of *or* along with the two utterances before and after the utterance containing *or*. We annotated the examples for four major categories. 
 *Exclusivity Interpretation*: This category represents the goal task: understanding the intended form of disjunction. 
-*Intonation*: This category was divided into three main intonation patterns over the disjuncts. Intonation could be flat, rising overall, or rise-fall. These three categories were selected because rise-fall in particular has been shown to lead to an exclusive interpretation of the disjunction. 
+*Intonation*: This category was divided into three main intonation patterns over the disjuncts. Intonation could be flat, rising overall, or rise-fall. These three categories were selected because rise-fall in particular has been shown to lead to an exclusive interpretation of the disjunction [@pruitt2011disjunctive]. 
 *Consistency*: This category tracked the logical consistency of the disjuncts. Two disjuncts were marked as inconsistent if replacing the word "or" with "and" produced a logical conflict. For example in “Are your feet clean or dirty?”, the disjuncts are inconsistent: the addresee’s feet cannot be both clean and dirty.
-*Syntactic Level*: This category marked the structure of the disjuncts of the utterance. Disjuncts could be sentential or subsentential. 
 
 Two raters annotated the same 240 utterances to develop a reliability score. The interrater reliability was calculated over 8 iterations of 30 examples. Training only completed after 3 consecutive iterations with reliability over 0.7 for all categories.
 
@@ -345,7 +344,8 @@ cds_disjunction_model <- summary(glmer(exclusivity ~ intonation + exclusion  + s
 
 ## Results 
 
-First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation, consistency, and sytantic level, and random effects for children found intonation and consistency significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
+First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). Figure 3 shows this difference in distribution. However, the rate of exclusive interpretations change systematically when we break the data down by prosody and consistency (figure below). A mixed-effects binomial logistic regression with the fixed effects of intonation, consistency, and random effects for children found intonation and consistency significant in interpreting disjunctions. Disjunctions were more likely to be interpreted as exlclusive if they received a rise-fall intonation ($\beta$=`r round(cds_disjunction_model$coefficients[3],2)`, $z$=`r round(cds_disjunction_model$coefficients[11],2)`, $p < 0.001$) or if they were inconsistent($\beta$=`r round(cds_disjunction_model$coefficients[4],2)`, $z$=`r round(cds_disjunction_model$coefficients[12],2)`, $p < 0.001$). Disjunctions were more likely to be interpreted as inclusive if they were consistent and received a rising intonation ($\beta$=`r round(cds_disjunction_model$coefficients[2],2)`, $z$=`r round(cds_disjunction_model$coefficients[10],2)`, $p < 0.001$) or flat intonation ($\beta$=`r round(cds_disjunction_model$coefficients[1],2)`, $z$=`r round(cds_disjunction_model$coefficients[9],2)`, $p < 0.001$).
+
 ```{r interpretation, fig.env='figure',fig.width=2, fig.height=2, fig.show='hold',set.cap.width=T, num.cols.cap=2, fig.align="center",fig.cap = "Distribution of exclusive and inclusive interpretations broken down by intonation and consistency. Error bars represent bootstrapped 95\\% confidence intervals"}
 ggplot(raw_data, aes(x= EXIN, y=prop, fill=EXIN)) + 
   theme_few(base_size = 10) + 
@@ -367,9 +367,9 @@ ggplot(graph_data, aes(x= exclusivity, y=prop, fill=exclusivity)) +
   scale_colour_solarized() + facet_grid(exclusion~intonation)
 ```
 
-Next, using Sklearn's Decision Tree Module [@pedregosa2011scikit], we built a predictive model to train on annotated *or* utterances and predict the exclusivity of unseen *or* utterances (annotated for intonation and consistency). Averaged over 100 trials and training on 200 examples, the average accuracy of a binary tree was 83%. More remarkably, the tree achieved an average of 80% accuracy after training on only 20 examples. The success of such a simple tree indicates that children could use a simple model to rapidly learn the exclusive interpretation of *or* from little data. 
+Next, using Sci-kit Learn's Decision Tree Module [@pedregosa2011scikit], we built a predictive model to train on annotated *or* utterances and predict the exclusivity of unseen *or* utterances (annotated for intonation and consistency). Averaged over 100 trials and training on 200 examples, the average accuracy of a binary tree was 83%. More remarkably, the tree achieved an average of 80% accuracy after training on only 20 examples. The success of such a simple tree indicates that children could use a simple model to rapidly learn the exclusive interpretation of *or* from little data. 
 
-```{r learningCurve, fig.env = "figure", fig.pos = 't', fig.align='center', fig.width=5, fig.height=2.5,fig.cap="Decision Tree Accuracy as a function of number of examples seen"}
+```{r learningCurve, fig.env = "figure", fig.pos = 'h', fig.align='center', fig.width=5, fig.height=2.5,fig.cap="Decision Tree Accuracy as a function of number of examples seen"}
 learning_curve <- png::readPNG('figs/learning_curve.png')
 grid::grid.raster(learning_curve)
 ```
@@ -377,7 +377,7 @@ grid::grid.raster(learning_curve)
 
 ## Summary 
 
-Exclusive instances of *or* are far more common than inclusive instances. Focusing on intonation and disjunct consistency, children can discover that exclusivity corrleates with factors external to *or*. Without these external markers, *or* itself does not exclude the option of both disjuncts being true. 
+In study 2, we confirm @morris2008logically's finding that exclusive interpretations of *or* are far more common than inclusive interpretations. However, we also show that the majority of these exclusive interpretations coincide with systematic indicators. Disjunctions that are accompanied by rise-fall intonation or inconsistent disjuncts are far more likely to be exclusive. Disjunctions that do no bear these features are more likely to be inclusive. Accounting for these external factors, a simple decision tree can rapidly learn to predict the exclusive interpretation of the disjunction. 
 
 # Conclusion
 
