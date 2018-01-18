@@ -282,9 +282,6 @@ staying around the parents' rate between the ages 4 and 6. This is
 compatible with the comprehension studies which suggest children
 understand \emph{and} and \emph{or} by the age four.
 
-\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}\textless{}
-HEAD
-
 \section{Study 2: Annotation Study}\label{study-2-annotation-study}
 
 Second, we conducted an detailed and small-scale investigation of
@@ -347,148 +344,62 @@ interpreted as inclusive if they were consistent and received a rising
 intonation (\(\beta\)=0.58, \(z\)=0.24, \(p < 0.001\)) or flat
 intonation (\(\beta\)=0.38, \(z\)=0.27, \(p < 0.001\)).
 
-Figure 3 demonstrates the clear relationship between exclusive
+\begin{CodeChunk}
+\begin{figure}[tb]
+
+{\centering \includegraphics{figs/interpretation-1} 
+
+}
+
+\caption[Distribution of exclusive and inclusive interpretations broken down by intonation and consistency]{Distribution of exclusive and inclusive interpretations broken down by intonation and consistency. Error bars represent bootstrapped 95\% confidence intervals}\label{fig:interpretation}
+\end{figure}
+\end{CodeChunk}
+
+Figure 4 demonstrates the clear relationship between exclusive
 interpretation, rise-fall intonation, and inconsistent disjuncts.
 Without these markers of exclusivity, the inclusive interpretations
 remain. This supports Crain (2012)'s claim that the ``default''
 interpretation of ``or'' is inclusive.
 
-Next, using Sklearn's Decision Tree Module, we built a predictive model
-to train on annotated \emph{or} utterances and predict the exclusivity
-of unseen \emph{or} utterances (annotated for intonation and
-consistency). Averaged over 100 trials and training on 200 examples, the
-average accuracy of a binary tree was 83\%. More remarkably, the tree
-achieved an average of 80\% accuracy after training on only 20 examples.
-
-=======
-
-\begin{quote}
-\begin{quote}
-\begin{quote}
-\begin{quote}
-\begin{quote}
-\begin{quote}
-\begin{quote}
-origin/master
-\end{quote}
-\end{quote}
-\end{quote}
-\end{quote}
-\end{quote}
-\end{quote}
-\end{quote}
-
-Use standard APA citation format. Citations within the text should
-include the author's last name and year. If the authors' names are
-included in the sentence, place only the year in parentheses, as in
-({\textbf{???}}), but otherwise place the entire reference in
-parentheses with the authors and year separated by a comma
-({\textbf{???}}). List multiple references alphabetically and separate
-them by semicolons ({\textbf{???}}, {\textbf{???}}). Use the et. al.
-construction only after listing all the authors to a publication in an
-earlier reference and for citations with four or more authors.
-
-For more information on citations in R Markdown, see
-\textbf{\href{http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html\#citations}{here}.}
-
-\subsection{Footnotes}\label{footnotes}
-
-Indicate footnotes with a number\footnote{Sample of the first
-footnote.} in the text. Place the footnotes in 9 point type at the
-bottom of the page on which they appear. Precede the footnote with a
-horizontal rule.\footnote{Sample of the second footnote.}
-
-\subsection{Figures}\label{figures}
-
-All artwork must be very dark for purposes of reproduction and should
-not be hand drawn. Number figures sequentially, placing the figure
-number and caption, in 10 point, after the figure with one line space
-above the caption and one line space below it. If necessary, leave extra
-white space at the bottom of the page to avoid splitting the figure and
-figure caption. You may float figures to the top or bottom of a column,
-or set wide figures across both columns.
-
-\subsection{Two-column images}\label{two-column-images}
-
-You can read local images using png package for example and plot it like
-a regular plot using grid.raster from the grid package. With this method
-you have full control of the size of your image. \textbf{Note: Image
-must be in .png file format for the readPNG function to work.}
-
-You might want to display a wide figure across both columns. To do this,
-you change the \texttt{fig.env} chunk option to \texttt{figure*}. To
-align the image in the center of the page, set \texttt{fig.align} option
-to \texttt{center}. To format the width of your caption text, you set
-the \texttt{num.cols.cap} option to \texttt{2}.
-
 \begin{CodeChunk}
 \begin{figure*}[h]
 
-{\centering \includegraphics{figs/2-col-image-1} 
+{\centering \includegraphics{figs/interpretationByIntonationAndConsistency-1} 
 
 }
 
-\caption[This image spans both columns]{This image spans both columns. And the caption text is limited to 0.8 of the width of the document.}\label{fig:2-col-image}
+\caption[Distribution of exclusive and inclusive interpretations broken down by intonation and consistency]{Distribution of exclusive and inclusive interpretations broken down by intonation and consistency. Error bars represent bootstrapped 95\% confidence intervals}\label{fig:interpretationByIntonationAndConsistency}
 \end{figure*}
 \end{CodeChunk}
 
-\subsection{One-column images}\label{one-column-images}
-
-Single column is the default option, but if you want set it explicitly,
-set \texttt{fig.env} to \texttt{figure}. Notice that the
-\texttt{num.cols} option for the caption width is set to \texttt{1}.
+Next, using Sklearn's Decision Tree Module (Pedregosa et al., 2011), we
+built a predictive model to train on annotated \emph{or} utterances and
+predict the exclusivity of unseen \emph{or} utterances (annotated for
+intonation and consistency). Averaged over 100 trials and training on
+200 examples, the average accuracy of a binary tree was 83\%. More
+remarkably, the tree achieved an average of 80\% accuracy after training
+on only 20 examples. The success of such a simple tree indicates that
+children could use a simple model to rapidly learn the exclusive
+interpretation of \emph{or} from little data.
 
 \begin{CodeChunk}
-\begin{figure}[H]
+\begin{figure}[t]
 
-{\centering \includegraphics{figs/image-1} 
+{\centering \includegraphics{figs/learningCurve-1} 
 
 }
 
-\caption[One column image]{One column image.}\label{fig:image}
+\caption[Decision Tree Accuracy as a function of number of examples seen]{Decision Tree Accuracy as a function of number of examples seen}\label{fig:learningCurve}
 \end{figure}
 \end{CodeChunk}
 
-\subsection{R Plots}\label{r-plots}
+\subsection{Summary}\label{summary-1}
 
-You can use R chunks directly to plot graphs. And you can use latex
-floats in the fig.pos chunk option to have more control over the
-location of your plot on the page. For more information on latex
-placement specifiers see
-\textbf{\href{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}{here}}
-
-\begin{CodeChunk}
-\begin{figure}[H]
-
-{\centering \includegraphics{figs/plot-1} 
-
-}
-
-\caption[R plot]{R plot}\label{fig:plot}
-\end{figure}
-\end{CodeChunk}
-
-\subsection{Tables}\label{tables}
-
-Number tables consecutively; place the table number and title (in 10
-point) above the table with one line space above the caption and one
-line space below it, as in Table 1. You may float tables to the top or
-bottom of a column, set wide tables across both columns.
-
-You can use the xtable function in the xtable package.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
-  \hline
-(Intercept) & 0.17 & 0.11 & 1.6 & 0.11 \\ 
-  x & 2.02 & 0.10 & 19.2 & 0.00 \\ 
-   \hline
-\end{tabular}
-\caption{This table prints across one column.} 
-\end{table}
+Exclusive instances of \emph{or} are far more common than inclusive
+instances. Focusing on intonation and disjunct consistency, children can
+discover that exclusivity corrleates with factors external to \emph{or}.
+Without these external markers, \emph{or} itself does not exclude the
+option of both disjuncts being true.
 
 \section{Conclusion}\label{conclusion}
 
@@ -535,6 +446,12 @@ MacWhinney, B. (2000). \emph{The childes project: The database} (Vol.
 Morris, B. J. (2008). Logically speaking: Evidence for item-based
 acquisition of the connectives and \&amp; or. \emph{Journal of Cognition
 and Development}, \emph{9}(1), 67--88.
+
+\hypertarget{ref-pedregosa2011scikit}{}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B.,
+Grisel, O., \ldots{} others. (2011). Scikit-learn: Machine learning in
+python. \emph{Journal of Machine Learning Research}, \emph{12}(Oct),
+2825--2830.
 
 \hypertarget{ref-pruitt2013interpretation}{}
 Pruitt, K., \& Roelofsen, F. (2013). The interpretation of prosody in
