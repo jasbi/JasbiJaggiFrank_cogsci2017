@@ -150,7 +150,7 @@ write.csv(rawNormalized_stats, "2_processed_data/raw_normalized.csv")
 write.csv(normalized_stats, "2_processed_data/bySpeechAct_normalized.csv")
 ```
 
-We accessed the Child Language Data Exchange System (CHILDES, @macwhinney2000childes) via the online platform [childes-db](http://childes-db.stanford.edu/) and its associated R package childesr [@childesdb]. We extracted all instances of *and* and *or* from the English corpora (ENG-NA and ENG-UK). We limited our analysis to the data between one and six years because there is scarce data outside this age range. We computated the relative frequency of connective production by dividing the total number of *and*/*or* in the speech of fathers, mothers, and children at a particular age by the total number of words spoken at that age. We present the relative frequency as parts per thousand.
+We accessed the Child Language Data Exchange System ([CHILDES](https://childes.talkbank.org/), @macwhinney2000childes) via the online platform [childes-db](http://childes-db.stanford.edu/) and its associated R package childesr [@childesdb]. We extracted all instances of *and* and *or* from the English corpora (ENG-NA and ENG-UK). We limited our analysis to the data between one and six years because there is scarce data outside this age range. We computated the relative frequency of connective production by dividing the total number of *and*/*or* in the speech of fathers, mothers, and children at a particular age by the total number of words spoken at that age. We present the relative frequency as parts per thousand.
 
 ## Results
 
@@ -229,10 +229,9 @@ bySpeechAct_normalized %>%
 
 The results show similar developmental trajectories for the production of *and* and *or* in children. For both words, there is a relatively rapid incease in their frequency between the ages of 2 and 4 before reaching the parent rate at the age of 4 and staying at that rate until the age of 6. This pattern of production is consistent with the nativist observations that the acquisition of *and* and *or* is rapid and that children have an adult-like comprehension of these two connectives at the age 4. 
 
-
 ## Summary
 
-And is a lot more frequent than or in child directed speech.
+In this study we showed that *and* is a lot more frequent than *or* in child directed speech.
 
 In the first six years, it appears that children reach the adult production rate for and but not or.
 
