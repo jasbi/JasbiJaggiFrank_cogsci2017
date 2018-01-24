@@ -18,7 +18,7 @@ To reproduce, please follow these steps:
 
 3. Install the `childesr` package. [The github repo and instructions are here.](https://github.com/langcog/childesr)
 
-4. Make sure the following R packages are installed: `png` (0.1.7), `grid` (3.4.2), `ggplot2` (2.2.1), `xtable` (1.8.2), `knitr` (1.18), `tidyverse` (1.1.1), `ggthemes` (3.4.0), `lubridate` (.6.0), `magrittr` (1.5), `lme4` (1.1.14), `lmerTest` (2.0.33), `forcats` (0.2.0), `bootstrap` (2017.2), `jpeg` (0.1.8). If you want the packages installed at once use the following code: `install.packages(c("png", "grid", "ggplot2", "xtable", "knitr", "tidyverse", "ggthemes", "lubridate", "magrittr", "lme4", "lmerTest", "forcats", "bootstrap", "jpeg"))`.
+4. Make sure the following R packages are installed: `png` (0.1.7), `grid` (3.4.2), `ggplot2` (2.2.1), `xtable` (1.8.2), `knitr` (1.18), `tidyverse` (1.1.1), `ggthemes` (3.4.0), `lubridate` (1.6.0), `magrittr` (1.5), `lme4` (1.1.14), `lmerTest` (2.0.33), `forcats` (0.2.0), `bootstrap` (2017.2), `jpeg` (0.1.8). If you want the packages installed at once use the following code: `install.packages(c("png", "grid", "ggplot2", "xtable", "knitr", "tidyverse", "ggthemes", "lubridate", "magrittr", "lme4", "lmerTest", "forcats", "bootstrap", "jpeg"))`.
 
 5. Make sure you have an updated verison of LaTeX. You can install TeX by visiting the [LaTeX Project website](https://www.latex-project.org/get/).
 
