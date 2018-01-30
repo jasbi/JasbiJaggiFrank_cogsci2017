@@ -347,7 +347,7 @@ understand \emph{and} and \emph{or} by the age four.
 
 Study 1 showed that even though \emph{or} is not very frequent in
 child-directed speech, children learn and produce it relatively quickly
-and reach the adult rate around the age 4. In study 2, we conducted a
+and reach the adult rate around the age 4. In Study 2, we conducted a
 detailed and small-scale investigation of \emph{or} productions in
 child-directed speech. The goal of the study was to find out how
 children learn the meaning of \emph{or} from such little data. We
@@ -490,7 +490,7 @@ flat intonation (\(\beta\)=0.38, \(z\)=0.27, \(p < 0.001\)).
 
 }
 
-\caption[Optimal decision tree training on 100 datapoints]{Optimal decision tree training on 100 datapoints. Provides series of two binary decisions to decide exlcusivity interpretation. Intonation $>$ 1.5 are rise-fall while intonation $<$ 1.5 are flat or rising. Consistency $>$ 0.5 are consistent while consistency $<$ 0.5 are  inconsistent. When *or* has neither rise-fall nor inconsistent disjuncts, it is marked inclusive. Otherwise, exclusive.}\label{fig:treeDiagram}
+\caption[Optimal decision tree training on 100 datapoints]{Optimal decision tree training on 100 datapoints. Provides series of two binary decisions to decide exlcusivity interpretation. Intonation $>$ 1.5 are rise-fall while intonation $<$ 1.5 are flat or rising. Consistency $>$ 0.5 are consistent while consistency $<$ 0.5 are  inconsistent.}\label{fig:treeDiagram}
 \end{figure}
 \end{CodeChunk}
 
@@ -501,9 +501,12 @@ utterances and predict the exclusivity of unseen \emph{or} utterances
 examples for training and 300 examples for testing. Averaged over 100
 trials, the average accuracy of a binary tree was 83\%. More remarkably,
 the tree achieved an average of 80\% accuracy after training on only 20
-examples. The success of such a simple tree indicates that children
-could use a simple model to rapidly learn the exclusive interpretation
-of \emph{or} from little data.
+examples. The control flow of the average decision tree on a single
+example is as follows. If \emph{or} has neither rise-fall nor
+inconsistent disjuncts, it is marked inclusive. Otherwise, exclusive.
+The success of such a simple tree indicates that children could use a
+simple model to rapidly learn the exclusive interpretation of \emph{or}
+from little data.
 
 \textbackslash{}begin\{CodeChunk\}
 \textbackslash{}begin\{figure\}{[}H{]}
