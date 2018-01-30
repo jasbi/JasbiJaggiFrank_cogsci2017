@@ -156,11 +156,9 @@ production for \emph{and} relatively quickly and around the age 3 but
 their productions of \emph{or} do not reach the adult level in the first
 five years. He also found that the majority of \emph{or} examples
 children hear (75-80\%) and produce (\%90) have an exclusive
-interpretation. He also found that around of children's or-productions
-have an exclusive interpretation. Based on these findings, he concluded
-that children's acquisition of \emph{or} is slow and they understand its
-meaning as exclusive before they add the inclusive meaning to their
-repertoire.
+interpretation. Based on these findings, he concluded that children's
+acquisition of \emph{or} is slow and they understand its meaning as
+exclusive before they add the inclusive meaning to their repertoire.
 
 On constructivist accounts of the acquisition of disjunction, children
 learn the meaning of \emph{or} by paying attention to how parents use it
@@ -376,39 +374,43 @@ before and after to provide context using
 \href{http://alpha.talkbank.org/clan/}{the CLAN software}. We annotated
 the examples for three major categories: 1. Interpretation 2. Intonation
 and 3. Conceptual consistency. Table 1 shows these categories along with
-their subcategories and an example for each subcategory. The first
-category - disjunction interpretation - was our dependent measure.
-Annotators listened to a disjunction like ``A or B'' and decided whether
-the speaker intended to imply ``not both A and B'' (exlcusive) or
-``possibly both A and B'' (inclusive). For the second category -
-intontation - annotators listened to the sentence containing disjunction
-and decided whether the intonation contour on the disjunction is
-rise-fall, rise, or flat. Table 1 includes examples that are
-prototypically read aloud with the intonation contour they are
-subcategorized as.
+their subcategories and an example for each subcategory.
+
+\subsubsection{Disjunction}\label{disjunction}
+
+The first category - disjunction interpretation - was our dependent
+measure. Annotators listened to a disjunction like ``A or B'' and
+decided whether the speaker intended to imply ``not both A and B''
+(exlcusive) or ``possibly both A and B'' (inclusive).
+
+\subsubsection{Intonation}\label{intonation}
+
+For the second category - intontation - annotators listened to the
+sentence containing disjunction and decided whether the intonation
+contour on the disjunction is rise-fall, rise, or flat. Table 1 includes
+examples that are prototypically read aloud with the intonation contour
+they are subcategorized as.
+
+\subsubsection{Consistency}\label{consistency}
 
 Finally, for conceptual consistency, annotators decided wether the
-propositions that make up the disjunction are inconsistent. For example,
-a disjunctive statement such as ``The ball is in my room or your room''
-denotes two propositions: 1. The ball is in my room 2. The ball is in
-your room. Regardless of the connective used for these propositions, the
-propositions themselves refer to inconsistent states of affairs: they
-cannot be both true at the same time. In such cases, the inclusive
-meaning is simply not available due to the nature of the propositions
-themselves and not the interpretation of the connective. Our annotators
-used the following diagnostic to decide the consistency of the
-disjuncts: Two disjuncts were marked as inconsistent if replacing the
-word \emph{or} with \emph{and} produced a contradiction. For example
-``The ball is in my room and your room'' is contradictory. The ball
-cannot be in two positions at the same time. It is important to note
-here that this is a particularly strict diagnostic. In many cases, the
-possibility of both propositions being true is ruled out based on prior
-knowledge and expectations of the situation. For example, when asking
-people whether they would like tea or coffee, it is often assumed that
-people choose one or the other. However, wanting to drink both tea and
-coffee is not conceptually inconsistent. It is just very unlikely. Our
-annotations of consistency are very conservative in that they consider
-such unlikely cases as consistent.
+propositions that make up the disjunction are inconsistent. Our
+annotators used the following diagnostic to decide the consistency of
+the disjuncts: Two disjuncts were marked as inconsistent if replacing
+the word \emph{or} with \emph{and} produced a contradiction. For
+example, changing ``the ball is in my room and your room'' to ``the ball
+is in my room and your room'' produces a contradiction because the
+propositions cannot be both true at the same time. In such cases, the
+inclusive meaning is simply not available due to the nature of the
+propositions themselves and not the interpretation of the connective. It
+is important to note here that this is a particularly strict diagnostic.
+In many cases, the possibility of both propositions being true is ruled
+out based on prior knowledge and expectations of the situation. For
+example, when asking people whether they would like tea or coffee, it is
+often assumed that people choose one or the other. However, wanting to
+drink both tea and coffee is not conceptually inconsistent. It is just
+very unlikely. Our annotations of consistency are very conservative in
+that they consider such unlikely cases as consistent.
 
 \begin{table}[H]
 \centering
@@ -472,7 +474,7 @@ interpretation.
 A mixed-effects binomial logistic regression using the pakcage \{lme4\}
 (Bates, Maechler, Bolker, Walker, \& others, 2014) in R with the fixed
 effects of intonation and consistency, as well as the random effects for
-children found both intonation and consistency significant in
+children, found both intonation and consistency significant in
 interpreting disjunctions. Disjunctions were more likely to be
 interpreted as exclusive if they received a rise-fall intonation
 (\(\beta\)=-3.79, \(z\)=1.66, \(p < 0.001\)) or if they were
@@ -484,32 +486,37 @@ flat intonation (\(\beta\)=0.38, \(z\)=0.27, \(p < 0.001\)).
 \begin{CodeChunk}
 \begin{figure}[H]
 
-\includegraphics{figs/treeDiagram-1} \hfill{}
+{\centering \includegraphics{figs/treeDiagram-1} 
 
-\caption[Optimal decision tree training on 200 datapoints]{Optimal decision tree training on 200 datapoints. Intonation $>$ 1.5 are rise-fall while intonation $<$ 1.5 are flat or rising. Consistency $>$ 0.5 are consistent while consistency $<$ 0.5 are  inconsistent. When *or* has neither rise-fall nor inconsistent disjuncts, it is marked inclusive. Otherwise, exclusive.}\label{fig:treeDiagram}
+}
+
+\caption[Optimal decision tree training on 100 datapoints]{Optimal decision tree training on 100 datapoints. Provides series of two binary decisions to decide exlcusivity interpretation. Intonation $>$ 1.5 are rise-fall while intonation $<$ 1.5 are flat or rising. Consistency $>$ 0.5 are consistent while consistency $<$ 0.5 are  inconsistent. When *or* has neither rise-fall nor inconsistent disjuncts, it is marked inclusive. Otherwise, exclusive.}\label{fig:treeDiagram}
 \end{figure}
 \end{CodeChunk}
 
 Next, using Sci-kit Learn's Decision Tree Module (Pedregosa et al.,
 2011), we built a predictive model to train on annotated \emph{or}
 utterances and predict the exclusivity of unseen \emph{or} utterances
-(annotated for intonation and consistency). Averaged over 100 trials and
-training on 200 examples, the average accuracy of a binary tree was
-83\%. More remarkably, the tree achieved an average of 80\% accuracy
-after training on only 20 examples. The success of such a simple tree
-indicates that children could use a simple model to rapidly learn the
-exclusive interpretation of \emph{or} from little data.
+(annotated for intonation and consistency). We randomly sampled 100
+examples for training and 300 examples for testing. Averaged over 100
+trials, the average accuracy of a binary tree was 83\%. More remarkably,
+the tree achieved an average of 80\% accuracy after training on only 20
+examples. The success of such a simple tree indicates that children
+could use a simple model to rapidly learn the exclusive interpretation
+of \emph{or} from little data.
 
-\begin{CodeChunk}
-\begin{figure}[H]
+\textbackslash{}begin\{CodeChunk\}
+\textbackslash{}begin\{figure\}{[}H{]}
 
-{\centering \includegraphics{figs/learningCurve-1} 
+\{\centering \includegraphics{figs/learningCurve-1}
 
-}
+\}
 
-\caption[Decision Tree Accuracy as a function of number of examples seen]{Decision Tree Accuracy as a function of number of examples seen}\label{fig:learningCurve}
-\end{figure}
-\end{CodeChunk}
+\textbackslash{}caption{[}Decision Tree Accuracy as a function of number
+of examples seen{]}\{Decision Tree Accuracy as a function of number of
+examples seen. Tested on a constant 300 examples. Dashed line marks 80\%
+accuracy threshold.\}\label{fig:learningCurve}
+\textbackslash{}end\{figure\} \textbackslash{}end\{CodeChunk\}
 
 \subsection{Summary}\label{summary-1}
 
