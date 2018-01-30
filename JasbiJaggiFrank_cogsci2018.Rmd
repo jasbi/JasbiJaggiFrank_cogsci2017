@@ -407,13 +407,13 @@ ggplot(raw_data, aes(x= EXIN, y=prop, fill=EXIN)) +
 ## Results 
 
 ```{r interpretationByIntonationAndConsistency, fig.env='figure*',fig.pos='t',fig.width=4.2, fig.height=3, fig.align="center",fig.show='hold',set.cap.width=T, num.cols.cap=2, fig.cap = "Distribution of exclusive and inclusive interpretations broken down by intonation (flat, rise, rise-fall) and consistency. Error bars represent bootstrapped 95\\% confidence intervals"}
-ggplot(graph_data, aes(x= exclusivity, y=prop, fill=exclusivity)) + 
+ggplot(mutate(graph_data,exclusion=reorder(exclusion,prop)), aes(x="",y = prop,fill=exclusivity)) + 
   geom_col(width=0.7) +
   geom_linerange(aes(ymax = cih, ymin = cil)) +
   guides(fill=FALSE) +
   theme_few(base_size = 10) + 
   labs(title = "", x = "", y = "") + 
-  scale_colour_solarized() + facet_grid(exclusion~intonation)
+  scale_colour_solarized() + facet_wrap(exclusion~intonation, ncol=6)
 ```
 
 First, similar to Morris (2008), we found that the majority of *or* examples in CDS receive an exclusive interpretation ($\sim$%`r 100 * round(exclusivity_overall$prop[1],2)`). Figure \ref{fig:interpretation} shows this difference in distribution. However, the rate of exclusive interpretations change systematically when we break the data down by intonation and consistency (Figure \ref{fig:interpretationByIntonationAndConsistency}). Given a rise-fall intonation contour, a disjunction is almost always interpreted as exclusive. Similarly, if the propositions are inconsistent, the disjunction is most likely interpreted as exclusive. When either of these two features are absent, a disjunction is more likely to receive an inclusive interpretation.
