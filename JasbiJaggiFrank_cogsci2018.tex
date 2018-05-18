@@ -66,17 +66,17 @@ words like \emph{and} and \emph{or} that enable the construction of
 complex combinatorial language. How do children learn the meaning of
 these function words? Using transcripts of parent-child interactions, we
 investigate the cues in child-directed speech that can inform the
-interpretation and acquisition of the connective \emph{or}, which has a
+interpretation and acquisition of the connective \emph{or} which has a
 particularly challenging semantics. Study 1 finds that, despite its low
-overall frequency, children use \emph{or} at adult levels by age 4 in
-some speech acts. Study 2 uses annotations of a subset of parent-child
-interactions to show that disjunctions in child-directed speech are
-accompanied by reliable cues to the correct interpretation (exclusive
-vs.~inclusive). We present a decision-tree model that learns from a
-handful of annotated examples to correctly predict the interpretation of
-a disjunction. These studies suggest that conceptual and prosodic cues
-in child-directed speech can provide information for the acquisition of
-functional categories like disjunction.
+overall frequency, children can use \emph{or} close to parents' rate by
+age 4, in some speech acts. Study 2 uses annotations of a subset of
+parent-child interactions to show that disjunctions in child-directed
+speech are accompanied by reliable cues to the correct interpretation
+(exclusive vs.~inclusive). We present a decision-tree model that learns
+from a handful of annotated examples to correctly predict the
+interpretation of a disjunction. These studies suggest that conceptual
+and prosodic cues in child-directed speech can provide information for
+the acquisition of functional categories like disjunction.
 
 \textbf{Keywords:}
 language acquisition; word learning; function words; logical words;
@@ -98,45 +98,46 @@ as \emph{squirrel}, \emph{red}, and \emph{run}, we know little about
 cues that can assist children in learning the meaning of function words
 such as \emph{and}, \emph{the}, \emph{of}, and \emph{or}. This is partly
 due to the nature of these two categories. There are thousands of
-content words and their meanings are often concrete and tangible. In
-contrast, there are few function words and they refer to highly abstract
-meanings that hold content words together to form complete sentences and
-thoughts. These properties make function words challenging for theories
-of word learning. In this study, we investigate the cues that assist
-children's acquisition of function words by examining the disjunction
-word \emph{or} in parent-child interactions.
+content words and their meanings are often tangible, referring to
+observable objects, events, and properties. In contrast, there are few
+function words and they denote highly abstract meanings. They act as the
+impalpable glue that holds content words together to form complete
+sentences and thoughts. These properties make function words challenging
+for theories of word learning. In this study, we discuss the cues that
+may assist children's acquisition of function words, by examining the
+disjunction word \emph{or} in parent-child interactions.
 
 The word \emph{or} has been a case study for linguistic semantics due to
-its apparent ambiguity between an inclusive and exclusive
-interpretation. In formal logics, there are two types of disjunction:
-inclusive and exclusive. An inclusive disjunction such as ``A \(\vee\)
-B'' is true when either A, B, or both are true. An exclusive disjunction
-such as ``A \(\oplus\) B'' is true only when A or B is true but not
-both. The linguistic connective \emph{or} appears to be ambiguous
-between an inclusive interpretation like ``A \(\vee\) B'' and an
-exclusive one like ``A \(\oplus\) B''. For example, a waiter may ask if
-you would like something to eat or drink, not excluding the possibility
-that you would like both. However, the waiter may later ask if you would
-like to see the dessert menu or have the check, suggesting that you
-should choose one or the other, and not both.
+its apparent ambiguity between an inclusive and an exclusive
+interpretation. An inclusive disjunction such as ``A \(\vee\) B'' is
+true when either A, B, or both are true. An exclusive disjunction such
+as ``A \(\oplus\) B'' is true only when A or B is true, but not both.
+The linguistic connective \emph{or} appears to be ambiguous between an
+inclusive interpretation like ``A \(\vee\) B'' and an exclusive one like
+``A \(\oplus\) B''. For example, a waiter may ask if you would like
+something to eat or drink, not excluding the possibility that you would
+like both. However, the waiter may later ask if you would like to see
+the dessert menu or have the check, suggesting that you should choose
+one or the other, and not both.
 
-Closer examinations suggest that while the meaning of \emph{or} itself
-is inclusive, the exclusive interpretation can be derived by ruling out
-the situation where both options are true via pragmatic reasoning,
-inconsistent options, or a rise-fall intonation. Grice (1975) argued
+Closer examinations suggest that the exclusive interpretation of
+\emph{or} can be derived from an underlyingly inclusive meaning by
+ruling out the situation where both options are true using pragmatic
+reasoning (Grice, 1975), inconsistent options (Geurts, 2006), or a
+rise-fall intonation (Pruitt \& Roelofsen, 2013). Grice (1975) argued
 that upon hearing ``A or B,'' we may exclude the possibility that both A
 and B are true because we reason that in that case, the speaker could
 have used the connective \emph{and} instead of \emph{or}. Therefore, the
 exclusive interpretation is the result of this pragmatic reasoning on
-the speaker's connective choice. Following this line of reasoning,
-Geurts (2006) argued that in many cases, exclusive interpretations stem
-from the inconsistent meaning of the options themselves. For example,
-``to be or not to be'' is exclusive simply because one cannot both be
-and not be! In an experimental study, Pruitt \& Roelofsen (2013) showed
-that in questions, exclusive interpretations are the result of a
-rise-fall intonation on the disjunction. These studies suggest that the
-exclusive interpretation of \emph{or} is the result of modifying
-\emph{or}'s underlyingly inclusive semantics by external factors.
+the speaker's connective choice. Geurts (2006) argued that in many
+cases, exclusive interpretations stem from the inconsistent meaning of
+the options themselves. For example, ``to be or not to be'' is exclusive
+simply because one cannot both be and not be! In an experimental study,
+Pruitt \& Roelofsen (2013) showed that in questions, exclusive
+interpretations are the result of a rise-fall intonation on the
+disjunction. These studies suggest that the exclusive interpretation of
+\emph{or} may be the result of modifying \emph{or}'s underlyingly
+inclusive semantics by external factors.
 
 \begin{CodeChunk}
 \begin{figure}[t]
@@ -149,17 +150,20 @@ exclusive interpretation of \emph{or} is the result of modifying
 \end{figure}
 \end{CodeChunk}
 
-Given these complexities in the interpretation of disjunction, how do
-children learn the inclusive meaning of \emph{or}? One possibility is
-that inclusive interpretations dominate the examples of \emph{or} that
-children hear. Morris (2008) investigated instances of \emph{and} and
-\emph{or} in parents' and children's speech using 240 transcripts in the
-CHILDES database (MacWhinney, 2000). He found that compared to
-\emph{and}, \emph{or} is extremely rare in child-directed speech and
-that children start to produce and subsequently reach the adult rate
-earlier for \emph{and}. He also found that the majority of \emph{or}
-examples children hear (75-80\%) and produce (90\%) have an exclusive
-interpretation. Based on these findings, he concluded that children's
+Given these complexities in the interpretation of disjunction, how can
+children learn an underlyingly inclusive semantics for \emph{or}? A
+previous investigation has suggested that children rarely hear the word
+\emph{or}; and when they do, they hear the exclusive interpretation.
+Morris (2008) investigated instances of \emph{and} and \emph{or} in
+parents' and children's speech using 240 transcripts in the CHILDES
+database (MacWhinney, 2000). He found that compared to \emph{and},
+\emph{or} is extremely rare in child-directed speech and that children
+start to produce \emph{and} earlier than \emph{or}. He showed that for
+\emph{and}, children matched their parents' level of production at age
+3, while for \emph{or}, they did not have comparable frequencies to
+their parents even at age 5. Furthermore, the majority of \emph{or}
+examples children heard (75-80\%) and produced (90\%) had exclusive
+interpretations. Based on these findings, he concluded that children's
 early meaning for \emph{or} is exclusive disjunction and that they learn
 the inclusive meaning in later stages of development (possibly at age 6
 or 7).
@@ -177,37 +181,66 @@ be inclusive. In other words, upon hearing a connective word, children
 consider inclusive disjunction (A \(\vee\) B) as a viable candidate for
 its meaning but not exclusive disjunction (A \(\oplus\) B).
 
-Here we present two studies investigating the role of input in
-children's acquisition of disjunction. In study 1, we use a larger
+Here we present two studies, investigating the role of input in
+children's acquisition of disjunction. In Study 1, we used a larger
 corpus (9,097 transcripts in CHILDES) than that of Morris (2008) to
-investigate the frequencies of \emph{and} and \emph{or} in parent-child
-interactions. We find that when we consider the speech acts they are
-most used for, both \emph{and} and \emph{or} appear relatively early in
-children's speech and reach the adult rate of production at or by the
-age 4. In study 2, we conduct an annotation study to check the
-frequencies of \emph{or}'s exclusive and inclusive interpretations as
-well as conceptual and prosodic cues that accompany it. We replicate
-Morris (2008)'s finding that the majority of \emph{or} examples in
-child-directed speech have an exclusive interpretation. However, we also
-show that these exclusive interpretations correlate systematically with
-conceptual and prosodic cues. Exclusive interpretations are either
-conceptually inconsistent or carry a distinct rise-fall intonation. We
-show that setting aside these cases, the interpretation of a disjunction
-is most often inclusive. We build a learning model that uses intonation
-and conceptual consistency to predict the interpretation of a
-disjunction with high accuracy even given relatively few examples. These
-results suggest that children can rely on cues present in child-directed
-speech to tease apart the exclusive vs.~inclusive interpretation of
-disjunction and map the meaning of \emph{or} accordingly.
+investigate the frequencies of \emph{and}/\emph{or} in parent-child
+interactions. First we replicated Morris (2008)`s results. We found that
+\emph{and} is at least 10 times more frequent than \emph{or} in
+child-directed speech, and that children start producing \emph{and}
+slightly earlier than \emph{or} on average. We also found that for
+\emph{and}, children reach their parents' level of production around 3
+years of age. For \emph{or}, however, children's production increased
+between 2.5 and 4 years and stayed constant afterward, but it did not
+reach parents' level. We argue that this may be due to an asymmetry in
+the speech acts produced by parents and children. Overall, parents ask
+more questions from children than vice versa. Since \emph{or} is more
+frequent in questions than declaratives, children's lower production of
+questions than parents may result in lower productions of \emph{or} as
+well. We show that when we split children's productions by speech act,
+children's production of \emph{or} in declaratives (but not questions)
+is comparable to that of parents. In Study 2, we conducted an annotation
+study to check the frequencies of \emph{or}'s exclusive and inclusive
+interpretations as well as conceptual and prosodic cues that accompany
+it. We replicated Morris (2008)'s finding that the majority of \emph{or}
+examples in child-directed speech have an exclusive interpretation.
+However, we also show that these exclusive interpretations correlate
+systematically with conceptual and prosodic cues. Exclusive
+interpretations were either conceptually inconsistent or carried a
+distinct rise-fall intonation. We show that setting aside these cases,
+the interpretation of a disjunction is most often inclusive. We build a
+learning model that uses intonation and conceptual consistency to
+predict the interpretation of a disjunction with high accuracy even
+given relatively few examples. These results suggest that children can
+rely on cues present in child-directed speech to tease apart the
+exclusive vs.~inclusive interpretation of disjunction and map the
+meaning of \emph{or} accordingly.
 
 \section{Study 1: Corpus Study}\label{study-1-corpus-study}
 
-First, we conducted an exploratory investigation of \emph{and} and
-\emph{or} productions in parents' and children's speech. The goal of the
-study was to find out when children start producing these words and when
-they reach the adult rate of production.
+First, we conducted a large-scale exploratory investigation of
+\emph{and} and \emph{or} productions in parents' and children's speech.
+The goal of the study was to find out when children start producing
+these words and what is their frequency of usage.
+
+\begin{CodeChunk}
+\begin{figure}[tb]
+\includegraphics{figs/OverallConnectivePlots-1} \caption[Relative frequency of and/or in parents' (green) and children's (blue) speech between ages 1-6 years]{Relative frequency of and/or in parents' (green) and children's (blue) speech between ages 1-6 years.}\label{fig:OverallConnectivePlots}
+\end{figure}
+\end{CodeChunk}
 
 \subsection{Methods}\label{methods}
+
+\begin{CodeChunk}
+\begin{figure*}[t]
+
+{\centering \includegraphics{figs/byspeechActPlots-1} 
+
+}
+
+\caption[Relative frequency of and/or in parents'/childern's speech between the ages of one and six years]{Relative frequency of and/or in parents'/childern's speech between the ages of one and six years.}\label{fig:byspeechActPlots}
+\end{figure*}
+\end{CodeChunk}
 
 We accessed the Child Language Data Exchange System
 (\href{https://childes.talkbank.org/}{CHILDES}; MacWhinney (2000)) via
@@ -220,63 +253,55 @@ utterance as well as the utterance type. Utterances were coded as
 \href{https://talkbank.org/manuals/CHAT.html\#_Toc486414422}{the CHILDES
 CHAT trascription format}. Since utterance types ``imperatives'' and
 ``other'' constituted a very small portion of utterances, we did not
-include them in our analysis. In our analysis, we used utterance type as
-a proxy for speech acts (Austin, 1975). We limited our analysis to the
+include them in our analysis. We used utterance types as a proxy for
+speech acts in this study (Austin, 1975). We limited our analysis to the
 data between the ages 1 and 6 because there was limited data outside
 this age range. We computed the relative frequency of connective
 production by dividing the total number of \emph{and} and \emph{or}
 tokens in the speech of fathers, mothers, and children at a particular
-age by the total number of words spoken at that age. We present the
-relative frequency as parts per thousand.
-
-\begin{CodeChunk}
-\begin{figure}[t]
-\includegraphics{figs/OverallConnectivePlots-1} \includegraphics{figs/OverallConnectivePlots-2} \caption[The relative frequency of AND (top) and OR (bottom) per thousand words in the speech of fathers, mothers, and children between the ages of 1 and 6]{The relative frequency of AND (top) and OR (bottom) per thousand words in the speech of fathers, mothers, and children between the ages of 1 and 6.}\label{fig:OverallConnectivePlots}
-\end{figure}
-\end{CodeChunk}
+age by the total number of words spoken by them at that age. We present
+the relative frequency as parts per thousand.
 
 \subsection{Results}\label{results}
-
-\begin{CodeChunk}
-\begin{figure*}[t]
-
-{\centering \includegraphics{figs/byspeechActPlots-1} \includegraphics{figs/byspeechActPlots-2} 
-
-}
-
-\caption[The relative frequency of AND (left) and OR (right) per thousand words in declaratives and questions in the speech of fathers (Light Green), mothers (Dark Green), and children (Blue) between the ages of 1 and 6]{The relative frequency of AND (left) and OR (right) per thousand words in declaratives and questions in the speech of fathers (Light Green), mothers (Dark Green), and children (Blue) between the ages of 1 and 6.}\label{fig:byspeechActPlots}
-\end{figure*}
-\end{CodeChunk}
 
 In Figure \ref{fig:OverallConnectivePlots}, we show the relative
 frequencies of \emph{and} and \emph{or} in the speech of parents and
 children between the ages of 1 and 6 years. In the speech of parents,
-\emph{and} is produced around 20 times per thousand words while
-\emph{or} is only produced around 2 times per thousand words. This
-result confirms previous findings that \emph{or} is much less frequent
-in child directed speech than a similar function word such as
-\emph{and}.
+\emph{and} was produced around 20 times per thousand words, while
+\emph{or} was only produced around 2 times per thousand words. These
+results confirm previous findings that \emph{or} is much less frequent
+than \emph{and} in child directed speech.
 
-\emph{and} and \emph{or} seem to show different developmental
-trajectories in the speech of children. For \emph{and}, there is a rapid
-increase in its production between the ages of 1.5 and 3. It reaches the
-adult rate around the age 3 and stays at that level afterwards. For
-\emph{or}, on the other hand, we see a slow increase from age 2, getting
-close to the adult rate only at age 6. This difference in the
-development of \emph{and} \& \emph{or} production is similar to the
-developmental trends reported by Morris (2008). However, the analysis
-above does not control for the role of speech act (e.g.~questions and
-declaratives) in the frequency of function words. While content words
-such as \emph{dog} or \emph{chair} may appear freely in different types
-of speech acts, function words can be constrained by the type of speech
-acts they can appear in. \emph{and} is more frequent in declaratives
-(71\%) while \emph{or} has similar frequencies in declaratives and
-questions (46\% vs.~48\%). In addition, declaratives are more frequent
-than questions overall (73\% vs.~22\%). Thus, these base-rate
-differences may mask different developmental trajectories.
+\begin{CodeChunk}
+\begin{figure}[tb]
+\includegraphics{figs/utteranceTypeByAgePlot-1} \caption[Proportion of questions (vs]{Proportion of questions (vs. declaratives) in child-parent interactions by age.}\label{fig:utteranceTypeByAgePlot}
+\end{figure}
+\end{CodeChunk}
+
+The relative frequencies of \emph{and} and \emph{or} in children's
+speech show different developmental trajectories. The production of
+\emph{and} starts between 12-18 months (1-1.5 years) and increases until
+it reaches parents' level around 30 months (2.5 years). The production
+of \emph{or}, on the other hand, starts slightly later between 18-30
+months (1.5-2.5 years). It increases between 30-42 months (2.5-3.5
+years) and stays at a constant rate -- one \emph{or} per thousand words
+-- between 42-72 months (3.5-6 years). These results replicate Morris
+(2008)`s findings that \emph{or} is produced later than \emph{and}, and
+that it reaches parents' rate of production later as well. While Morris
+(2008) discusses input frequency and conceptual complexity as possible
+reasons for the differences in children's production of
+\emph{and}/\emph{or}, we here consider the role of speech acts. Similar
+to Morris (2008), we found most examples of \emph{and} in declaratives
+(71\%) while examples of \emph{or} were as common in declaratives and
+questions (46\% vs.~48\%). In addition, children produced fewer
+questions than parents and increased their productions as they aged, but
+they never reached parents' level (Figure
+\ref{fig:utteranceTypeByAgePlot}). These results suggest that the
+production of \emph{or} in children may be affected by the frequency and
+the developmental trend of questions in children's speech.
 
 We therefore computed the relative frequency of \emph{and}/\emph{or}
-across questions and declaratives separately. Relative frequency is
+across questions and declaratives separately. Relative frequency was
 computed as \emph{freq(target) / total--tokens}, where both are computed
 within the utterances of a particular speaker (father, mother, child) in
 a particular speech act (questions, declaratives). Overall, we found
@@ -285,28 +310,56 @@ in questions (18.75 vs.~12.27 words per thousand). The relative
 frequency of \emph{or}, however, is higher in questions (0.9 vs.~2.2
 words per thousand). Figure \ref{fig:byspeechActPlots} shows the
 developmental trend of these relative frequencies, split by speech act.
-
-Within this analysis, \emph{and} appears to be produced at adult levels
-by around age 3 in declaratives, its modal speech act. And \emph{or}
-appears to be produced at relatively adult-like levels by around 4 in
-questions, its modal speech act. In contrast, in declaratives, which are
-more frequent overall, \emph{or} frequency is below adult rates
-throughout, perhaps due to its use in complex, multi-clausal sentences,
-which are less frequent for children of all ages than for adults. In
-sum, children's overall lower-frequency use of \emph{or} may mask
-earlier competence in producing \emph{or} in questions.
+Adults and children show close levels of productions for both
+connectives in decleratives and for \emph{and} in questions. However,
+children show a slow increase in the production of \emph{or} in
+questions which was only close to parents' level at age 6. These results
+suggest that children's lower overall production of \emph{or} may be
+mostly due to their lower rate of asking questions from parents.
+Overall, the study shows that children's productions are consistent with
+an adult-like comprehension of \emph{and}/\emph{or} around the age four,
+as some comprehension studies suggest (Crain, 2012; Jasbi \& Frank,
+2016)
 
 \section{Study 2: Annotation Study}\label{study-2-annotation-study}
 
-Study 1 showed that even though \emph{or} is not very frequent in
-child-directed speech, children learn and produce it in questions and
-reach the adult rate of production around the age 4. In study 2, we
-conducted an annotation study of \emph{or} productions in child-directed
-speech. The goal of this study was to discover features of
-child-directed speech that may help the acquisition of \emph{or}'s
+Study 1 showed that even though \emph{or} is not frequent in
+child-directed speech, children can produce it by the age 4. In Study 2,
+we conducted an annotation study of \emph{or} productions in
+child-directed speech. The goal of this study was to discover features
+of child-directed speech that may help the acquisition of \emph{or}'s
 meaning from infrequent data.
 
 \subsection{Methods}\label{methods-1}
+
+\begin{table}[b]
+\centering
+\begin{tabular}{lll}
+ Category & Subcategory & Examples \\ 
+  \hline
+Interpretation & Exclusive & Wanna stay or go? \\ 
+   & Inclusive & Anything to eat or drink? \\ 
+   \hline
+Intonation & Flat & I'll get tea or coffee. \\ 
+   & Rise & Anything to eat or drink? \\ 
+   & Rise-Fall & Wanna stay or go? \\ 
+   \hline
+Consistency & Consistent & I'll get tea or coffee. \\ 
+   & Inconsistent & Wanna stay or go? \\ 
+  \end{tabular}
+\caption{Annotation categories and examples.} 
+\end{table}
+
+\begin{CodeChunk}
+\begin{figure}[b]
+
+{\centering \includegraphics{figs/interpretation-1} 
+
+}
+
+\caption[Proportion of exclusive and inclusive interpretations of disjunction in child-directed speech]{Proportion of exclusive and inclusive interpretations of disjunction in child-directed speech. Error bars represent bootstrapped 95\% confidence intervals.}\label{fig:interpretation}
+\end{figure}
+\end{CodeChunk}
 
 We accessed
 \href{https://phonbank.talkbank.org/browser/index.php?url=Eng-NA/Providence/}{the
@@ -342,7 +395,7 @@ that make up the disjunction are inconsistent. Our annotators used the
 following diagnostic to decide the consistency of the disjuncts: Two
 disjuncts were marked as inconsistent if replacing the word \emph{or}
 with \emph{and} produced a contradiction. For example, changing ``the
-ball is in my room and your room'' to ``the ball is in my room and your
+ball is in my room or your room'' to ``the ball is in my room and your
 room'' produces a contradiction because the propositions cannot be both
 true at the same time.
 
@@ -358,24 +411,6 @@ future research, relaxing this definition to allow for exclusion based
 on prior expectations may allow us to capture more exclusive
 interpretations of disjunction.
 
-\begin{table}[b]
-\centering
-\begin{tabular}{lll}
- Category & Subcategory & Examples \\ 
-  \hline
-Interpretation & Exclusive & Wanna stay or go? \\ 
-   & Inclusive & Anything to eat or drink? \\ 
-   \hline
-Intonation & Flat & I'll get tea or coffee. \\ 
-   & Rise & Anything to eat or drink? \\ 
-   & Rise-Fall & Wanna stay or go? \\ 
-   \hline
-Consistency & Consistent & I'll get tea or coffee. \\ 
-   & Inconsistent & Wanna stay or go? \\ 
-  \end{tabular}
-\caption{Annotation categories and examples.} 
-\end{table}
-
 Finally, to test inter-rater reliability, the two raters annotated the
 same 240 instances of disjunction. The inter-rater reliability was
 calculated over 8 iterations of 30 examples each. Training only
@@ -383,28 +418,17 @@ completed after 3 consecutive iterations had substantial agreement
 between the raters (Cohen's \(\kappa > 0.7\)) for all categories.
 
 \begin{CodeChunk}
-\begin{figure}[b]
-
-{\centering \includegraphics{figs/interpretation-1} 
-
-}
-
-\caption[Proportion of exclusive and inclusive interpretations of disjunction in child-directed speech]{Proportion of exclusive and inclusive interpretations of disjunction in child-directed speech. Error bars represent bootstrapped 95\% confidence intervals}\label{fig:interpretation}
-\end{figure}
-\end{CodeChunk}
-
-\subsection{Results}\label{results-1}
-
-\begin{CodeChunk}
-\begin{figure*}[t]
+\begin{figure}[t]
 
 {\centering \includegraphics{figs/interpretationByIntonationAndConsistency-1} 
 
 }
 
-\caption[Distribution of exclusive and inclusive interpretations broken down by intonation (flat, rise, rise-fall) and consistency]{Distribution of exclusive and inclusive interpretations broken down by intonation (flat, rise, rise-fall) and consistency. Error bars represent bootstrapped 95\% confidence intervals}\label{fig:interpretationByIntonationAndConsistency}
-\end{figure*}
+\caption[Exclusive and inclusive interpretations broken down by intonation (flat, rise, rise-fall) and consistency]{Exclusive and inclusive interpretations broken down by intonation (flat, rise, rise-fall) and consistency. Error bars represent bootstrapped 95\% confidence intervals.}\label{fig:interpretationByIntonationAndConsistency}
+\end{figure}
 \end{CodeChunk}
+
+\subsection{Results}\label{results-1}
 
 First, similar to Morris (2008), we found that the majority of \emph{or}
 examples in CDS receive an exclusive interpretation (\(\sim\)\%65).
@@ -447,19 +471,19 @@ The preceding analysis suggests that intonation and consistency are
 related to the interpretation of disjunction. To investigate how
 informative these patterns were more quantitatively, we built a model to
 predict the interpretation of a disjunction after training on examples
-annotated for intonation and consistency. For ease of interpretation of
-the rules governing exclusivity, we fit a decision tree model using
-Sci-kit Learn's Decision Tree Module (Pedregosa et al., 2011). We
-randomly sampled 100 examples for training and 300 examples for testing.
-Averaged over 100 trials, the average accuracy of a binary tree was
-83\%. More remarkably, the tree achieved an average of 80\% accuracy
-after training on only 20 examples (Figure \ref{fig:learningCurve}). The
-control flow of the average decision tree on a single example is as
-follows. If \emph{or} has neither rise-fall nor inconsistent disjuncts,
-it is marked inclusive. Otherwise, exclusive (Figure
-\ref{fig:treeDiagram}). The success of such a simple decision-tree
-indicates that children could use a simple model to rapidly learn the
-exclusive interpretation of \emph{or} from infrequent data.
+annotated for intonation and consistency. To more easily understand the
+rules governing exclusivity, we fit a decision tree model using Sci-kit
+Learn's Decision Tree Module (Pedregosa et al., 2011). We randomly
+sampled 100 examples for training and 300 examples for testing. Averaged
+over 100 trials, the average accuracy of a binary tree was 83\%. More
+remarkably, the tree achieved an average of 80\% accuracy after training
+on only 20 examples (Figure \ref{fig:learningCurve}). The control flow
+of the average decision tree on a single example is as follows. If
+\emph{or} has neither rise-fall nor inconsistent disjuncts, it is marked
+inclusive. Otherwise, exclusive (Figure \ref{fig:treeDiagram}). The
+success of such a simple decision-tree indicates that children could use
+a simple model to rapidly learn the exclusive interpretation of
+\emph{or} from infrequent data.
 
 \begin{CodeChunk}
 \begin{figure}[tb]
@@ -474,7 +498,7 @@ exclusive interpretation of \emph{or} from infrequent data.
 
 \subsection{Summary}\label{summary}
 
-In study 2, we confirm Morris (2008)'s finding that exclusive
+In Study 2, we confirm Morris (2008)'s finding that exclusive
 interpretations of \emph{or} are far more common than inclusive
 interpretations. However, we also show that the majority of these
 exclusive interpretations coincide with systematic indicators.
@@ -493,15 +517,13 @@ accounts for the acquisition of \emph{and} and \emph{or}. Comprehension
 studies suggested that children learn the meaning of both \emph{and} and
 \emph{or} early and show an adult-like understanding of them by the age
 4. However, production studies suggested that \emph{and} reaches the
-adult rate of production by the age 3 while \emph{or} does not reach the
-adult level even at age 5. Study 1 showed that when we control for the
-speech acts that these connectives are most used for, we observe that
-both \emph{and} and \emph{or} appear to increase in prevalence somewhat
-earlier than in previous studies and come relatively close to adult
-levels at or before age 4. This observation unifies the picture from
-comprehension and production studies: Children's acquisition of
-\emph{and} and \emph{or} appears to take place between the ages of 2 and
-4.
+parents' rate of production by the age 3 while \emph{or} does not even
+at age 5. Study 1 showed that when we control for parent's and
+children's production of speech acts, children around age 4 produce
+\emph{and}/\emph{or} with relative frequencies comparable to those of
+their parents. This observation unifies the picture from comprehension
+and production studies: Children's acquisition of \emph{and} and
+\emph{or} appears to take place between the ages of 2 and 4.
 
 The second puzzle that this paper addressed was the problem of learning
 an inclusive semantics for \emph{or} from the majority exclusive
